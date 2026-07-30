@@ -165,6 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ae0a449c6d494418ed6968cc646e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAim
+  playerTransform: {fileID: 471303848}
+  radius: 0.25
+  gunFollowSpeed: 15
+  gunRotateSpeed: 12
 --- !u!114 &51818154
 MonoBehaviour:
   m_ObjectHideFlags: 0
