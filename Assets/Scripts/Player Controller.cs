@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
 
     void OnSprint (InputValue value)
     {
-        float sprintSpeed;
         if (value.isPressed)
         {
             moveSpeed = baseMoveSpeed * SprintMultiplier;
