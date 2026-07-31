@@ -2,6 +2,7 @@ using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Assemblies;
+using System.ComponentModel.Design.Serialization;
 
 public class GunScript : MonoBehaviour
 {
@@ -72,10 +73,17 @@ public class GunScript : MonoBehaviour
     public float LiquidMeter => Mathf.Clamp(currentTotalMeter - maxSolidMeter, 0, maxLiquidMeter);
 
     public float GasMeter => Mathf.Clamp(currentTotalMeter - (maxSolidMeter + maxLiquidMeter), 0, maxGasMeter);
+
+    [SerializeField] private float meterDepletionRate = 1f;
+    public float MeterDepletionRate {get => meterDepletionRate; set => meterDepletionRate = value;}
+
+    [SerializeField] private float timeBeforeCooldown = 1f;
+    public float TimeBeforeCooldown {get => timeBeforeCooldown; set => timeBeforeCooldown = value;}
+
+    float timeSinceLastShot = 0f;
 //----------------------------------------------------------------------------------------------------
     
-    [Header("Debug")]
-    [SerializeField] Transform bulletSpawnObject;
+Transform bulletSpawnObject;
 
     string currentState = "s";
 
@@ -101,10 +109,21 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.IsShooting && !player.IsOnShootCooldown)
+        updateState();
+        
+        if(player.IsShooting)
         {
-            StartCoroutine(ShootMethod());
+            currentTotalMeter += Time.deltaTime;
+            if (!player.IsOnShootCooldown)
+                StartCoroutine(ShootMethod());
         }
+        else
+        {
+            timeSinceLastShot += Time.deltaTime;
+            decreaseMeter();
+        }
+
+        Debug.Log(currentTotalMeter + "My State is: " + currentState);
     }
 
     private void Shoot(GameObject prefab, float spread, float speed, float recoil)
@@ -121,6 +140,8 @@ public class GunScript : MonoBehaviour
         Rigidbody2D bulletRB = spawnedBullet.GetComponent<Rigidbody2D>();
         bulletRB.linearVelocity = spawnedBullet.transform.up * speed;
         weaponAim.ApplyRecoil(recoil);
+
+        timeSinceLastShot = 0f;
     }
 
     public void ShootSolid()
@@ -158,6 +179,34 @@ public class GunScript : MonoBehaviour
                 yield return new WaitForSeconds(timeBetweenGasBullets);
                 break;
         }
-        player.IsOnShootCooldown = true;
+        player.IsOnShootCooldown = false;
+    }
+
+    public void updateState()
+    {
+        if (currentTotalMeter < maxSolidMeter)
+        {
+            currentState = "s";
+        }
+        else if (currentTotalMeter < maxSolidMeter + maxLiquidMeter)
+        {
+            currentState = "l";
+        }
+        else if (currentTotalMeter < maxSolidMeter + maxLiquidMeter + maxGasMeter)
+        {
+            currentState = "g";
+        }
+        else 
+        {
+            currentState = "p"; 
+        }
+    }
+
+    void decreaseMeter()
+    {
+        if (timeSinceLastShot > timeBeforeCooldown)
+        {
+            currentTotalMeter -= Time.deltaTime;
+        }
     }
 }
