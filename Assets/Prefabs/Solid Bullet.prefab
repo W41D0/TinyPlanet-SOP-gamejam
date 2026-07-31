@@ -134,4 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletBehaviour
   maxLifeTime: 3
-  maxRange: 10
+  maxRange: 15
