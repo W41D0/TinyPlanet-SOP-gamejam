@@ -60,19 +60,40 @@ public class GunScript : MonoBehaviour
 
 //----------------------------------------------------------------------------------------------------
 
+    [Header("Plasma Bullets")]
+    [SerializeField] private GameObject plasmaBullet;
+    public GameObject PlasmaBullet {get => plasmaBullet; set => plasmaBullet = value;}
+
+    [SerializeField] private float plasmaBulletSpeed = 10f;
+    public float PlasmaBulletSpeed {get => plasmaBulletSpeed; set => plasmaBulletSpeed = value;}
+
+    [SerializeField] private float timeBetweenPlasmaBullets = 0.5f;
+    public float TimeBetweenPlasmaBullets {get => timeBetweenPlasmaBullets; set => timeBetweenPlasmaBullets = value;}
+
+    [SerializeField] private float plasmaBulletRecoil = 2f;
+    public float PlasmaBulletRecoil {get => plasmaBulletRecoil; set => plasmaBulletRecoil = value;}
+
+    [SerializeField] private float plasmaBulletSpread = 5f;
+    public float PlasmaBulletSpread {get => plasmaBulletSpread; set => plasmaBulletSpread = value;}
+
+//----------------------------------------------------------------------------------------------------
+
     float currentTotalMeter = 0f;
+    
 
     [Header("Meter Behaviour")]
     [SerializeField] private float maxSolidMeter = 3f;
     [SerializeField] private float maxLiquidMeter = 3f;
     [SerializeField] private float maxGasMeter = 3f;
-
+    [SerializeField] private float maxPlasmaMeter = 2f;
 
     public float SolidMeter => Mathf.Clamp(currentTotalMeter, 0, maxSolidMeter);
 
     public float LiquidMeter => Mathf.Clamp(currentTotalMeter - maxSolidMeter, 0, maxLiquidMeter);
 
     public float GasMeter => Mathf.Clamp(currentTotalMeter - (maxSolidMeter + maxLiquidMeter), 0, maxGasMeter);
+
+    public float PlasmaMeter = 0f;
 
     [SerializeField] private float meterDepletionRate = 1f;
     public float MeterDepletionRate {get => meterDepletionRate; set => meterDepletionRate = value;}
@@ -83,9 +104,10 @@ public class GunScript : MonoBehaviour
     float timeSinceLastShot = 0f;
 //----------------------------------------------------------------------------------------------------
     
-Transform bulletSpawnObject;
+    Transform bulletSpawnObject;
 
     string currentState = "s";
+    bool inPlasmaMode = false;
 
     PlayerController player;
     WeaponAim weaponAim;
@@ -113,14 +135,26 @@ Transform bulletSpawnObject;
         
         if(player.IsShooting)
         {
-            currentTotalMeter += Time.deltaTime;
+            if(currentState != "p")
+                currentTotalMeter += Time.deltaTime;
             if (!player.IsOnShootCooldown)
                 StartCoroutine(ShootMethod());
         }
         else
         {
             timeSinceLastShot += Time.deltaTime;
-            decreaseMeter();
+            if(currentState != "p")
+                decreaseMeter();
+        }
+
+        if(currentState == "p")
+        {
+            PlasmaMeter += Time.deltaTime;
+            if (PlasmaMeter > maxPlasmaMeter)
+            {
+                PlasmaMeter = 0f;
+                currentTotalMeter = 0;
+            }
         }
 
         Debug.Log(currentTotalMeter + "My State is: " + currentState);
@@ -159,6 +193,11 @@ Transform bulletSpawnObject;
         Shoot(gasBullet, gasBulletSpread, gasBulletSpeed, gasBulletRecoil);
     }
 
+    public void ShootPlasma()
+    {
+        Shoot(plasmaBullet, plasmaBulletSpread, plasmaBulletSpeed, plasmaBulletRecoil);
+    }
+
     IEnumerator ShootMethod()
     {
         player.IsOnShootCooldown = true;
@@ -177,6 +216,11 @@ Transform bulletSpawnObject;
             case "g":
                 ShootGas();
                 yield return new WaitForSeconds(timeBetweenGasBullets);
+                break;
+
+            case "p":
+                ShootPlasma();
+                yield return new WaitForSeconds(timeBetweenPlasmaBullets);
                 break;
         }
         player.IsOnShootCooldown = false;
