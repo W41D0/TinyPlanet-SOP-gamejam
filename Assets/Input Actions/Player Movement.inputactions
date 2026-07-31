@@ -22,7 +22,7 @@
                     "id": "88fc4db4-bdfb-4629-b900-414f919a4ff8",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false,
                     "priority": 0
                 },
@@ -44,6 +44,16 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "b0de2d23-195a-4430-b1c4-494519d76ddc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false,
                     "priority": 0
                 }
             ],
@@ -199,6 +209,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "883e6f63-6b24-4761-90e2-15f5ccf4e068",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

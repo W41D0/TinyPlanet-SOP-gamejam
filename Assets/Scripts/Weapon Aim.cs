@@ -13,9 +13,7 @@ public class WeaponAim : MonoBehaviour
     [SerializeField] float damping = 15f;
 
     [Header("Rotation")]
-    [SerializeField] float gunFollowSpeed = 15f;
     [SerializeField] float gunRotateSpeed = 12f;
-
 
 
     Vector2 mouseScreenPosition;
@@ -52,7 +50,6 @@ public class WeaponAim : MonoBehaviour
         gunVelocity -= gunVelocity * damping * Time.deltaTime;
 
         transform.localPosition += gunVelocity * Time.deltaTime;
-        // transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, gunFollowSpeed * Time.deltaTime);
 
         aimDirection = mouseWorldPosition - transform.position;
         angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
@@ -60,6 +57,15 @@ public class WeaponAim : MonoBehaviour
         
         targetRotation = Quaternion.Euler(0f, 0f, angle);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, gunRotateSpeed * Time.deltaTime);
+    }
+
+    public void ApplyRecoil(float recoilStrength)
+    {
+        // 1. Calculate backward direction away from the mouse
+        Vector3 backwardDirection = -directionFromPlayer.normalized;
+
+        // 2. Inject the force directly into your custom math engine
+        gunVelocity += backwardDirection * recoilStrength;
     }
 
     void OnAim(InputValue value)
