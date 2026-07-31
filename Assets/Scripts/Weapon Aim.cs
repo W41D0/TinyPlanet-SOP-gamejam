@@ -13,7 +13,6 @@ public class WeaponAim : MonoBehaviour
     [SerializeField] float damping = 15f;
 
     [Header("Rotation")]
-    [SerializeField] float gunFollowSpeed = 15f;
     [SerializeField] float gunRotateSpeed = 12f;
 
 
@@ -52,7 +51,6 @@ public class WeaponAim : MonoBehaviour
         gunVelocity -= gunVelocity * damping * Time.deltaTime;
 
         transform.localPosition += gunVelocity * Time.deltaTime;
-        // transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, gunFollowSpeed * Time.deltaTime);
 
         aimDirection = mouseWorldPosition - transform.position;
         angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
