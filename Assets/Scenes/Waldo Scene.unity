@@ -366,6 +366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   solidBullet: {fileID: 4077447859269155429, guid: b4ddade9e035b8c4499a0599e638c16c, type: 3}
+  solidBulletSpeed: 10
+  timeBetweenSolidBullets: 0.5
+  solidBulletRecoil: 2
+  solidBulletSpread: 10
   baseMoveSpeed: 5
   SprintMultiplier: 1.5
 --- !u!1 &756324601

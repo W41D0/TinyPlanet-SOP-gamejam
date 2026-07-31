@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4340166528517617909}
   - component: {fileID: 7945021334749402224}
   - component: {fileID: 4923750522029578675}
+  - component: {fileID: -2867167929506484534}
   m_Layer: 0
   m_Name: Solid Bullet
   m_TagString: Untagged
@@ -120,3 +121,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2867167929506484534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077447859269155429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5ef4117cbf343447a35ec4f8eeb1514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletBehaviour
+  maxLifeTime: 3
+  maxRange: 10
