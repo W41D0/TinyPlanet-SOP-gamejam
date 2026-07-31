@@ -281,12 +281,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 307553063612677203, guid: cbb43cf1dbf01c644864306d1d40eb6d, type: 3}
     - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: gasBulletSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: gasBulletRecoil
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: gasBulletSpread
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: solidBulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: liquidBulletSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: solidBulletSpread
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: liquidBulletSpread
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: timeBetweenGasBullets
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: timeBetweenSolidBullets
-      value: 0.2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: timeBetweenLiquidBullets
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7095739417626012044, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: m_Name
