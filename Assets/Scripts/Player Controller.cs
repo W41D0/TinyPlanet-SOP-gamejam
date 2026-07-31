@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     [Header("Bullets")]
     [SerializeField] GameObject solidBullet;
     [SerializeField] float solidBulletSpeed = 10f;
-    [SerializeField] float timeBetweenSolidBullets = 0.2f;
+    [SerializeField] float timeBetweenSolidBullets = 0.5f;
+    [SerializeField] float solidBulletRecoil = 2f;
 
     Rigidbody2D rb;
     Vector2 moveDirection;
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator shootMethod(float shootCooldown)
     {
-        gun.Shoot(solidBullet, solidBulletSpeed);
+        gun.Shoot(solidBullet, solidBulletSpeed, solidBulletRecoil);
         isOnShootCooldown = true;
         yield return new WaitForSeconds(shootCooldown);
         isOnShootCooldown = false;
