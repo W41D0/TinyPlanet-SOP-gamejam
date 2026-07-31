@@ -7,13 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     GunScript gun;
 
-    [Header("Solid Bullets")]
-    [SerializeField] GameObject solidBullet;
-    [SerializeField] float solidBulletSpeed = 10f;
-    [SerializeField] float timeBetweenSolidBullets = 0.5f;
-    [SerializeField] float solidBulletRecoil = 2f;
-    [SerializeField] float solidBulletSpread = 5f;
-
     Rigidbody2D rb;
     Vector2 moveDirection;
     [SerializeField] float baseMoveSpeed = 5f;
@@ -37,11 +30,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = moveDirection * walkSpeed;
-        if(isShooting && !isOnShootCooldown)
-        {
-            StartCoroutine(shootMethod(timeBetweenSolidBullets));
-        }
-
     }
 
     void OnMove(InputValue value)
@@ -79,11 +67,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    IEnumerator shootMethod(float shootCooldown)
+    public void SetIsShooting(bool isShooting)
     {
-        gun.Shoot(solidBullet, solidBulletSpeed, solidBulletRecoil, solidBulletSpread);
-        isOnShootCooldown = true;
-        yield return new WaitForSeconds(shootCooldown);
-        isOnShootCooldown = false;
+        this.isShooting = isShooting;
+    }
+
+    public void SetIsOnShootCooldown(bool isOnShootCooldown)
+    {
+        this.isOnShootCooldown = isOnShootCooldown;
+    }
+
+    public bool GetIsShooting()
+    {
+        return isShooting;
+    }
+
+    public bool GetIsOnShootCooldown()
+    {
+        return isOnShootCooldown;
     }
 }
