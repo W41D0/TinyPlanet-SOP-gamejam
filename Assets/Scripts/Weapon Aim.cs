@@ -4,9 +4,15 @@ using UnityEngine.InputSystem;
 
 public class WeaponAim : MonoBehaviour
 {
-    [Header("Floaty Settings")]
+    [Header("Targeting")]
     [SerializeField] Transform playerTransform;
     [SerializeField] float radius = 0.25f;
+
+    [Header("Bounce")]
+    [SerializeField] float springStiffness = 250f;
+    [SerializeField] float damping = 15f;
+
+    [Header("Rotation")]
     [SerializeField] float gunFollowSpeed = 15f;
     [SerializeField] float gunRotateSpeed = 12f;
 
@@ -17,6 +23,9 @@ public class WeaponAim : MonoBehaviour
     Vector3 directionFromPlayer;
     Vector3 targetPosition;
     Vector3 aimDirection;
+    Vector3 displacement;
+    Vector3 springForce;
+    Vector3 gunVelocity;
     Quaternion targetRotation;
     float angle;
 
@@ -34,7 +43,16 @@ public class WeaponAim : MonoBehaviour
 
         directionFromPlayer = mouseWorldPosition - playerTransform.position;
         targetPosition = Vector3.ClampMagnitude(directionFromPlayer, radius);
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, gunFollowSpeed * Time.deltaTime);
+
+        displacement = targetPosition - transform.localPosition;
+
+        springForce = displacement * springStiffness;
+        
+        gunVelocity += springForce * Time.deltaTime;
+        gunVelocity -= gunVelocity * damping * Time.deltaTime;
+
+        transform.localPosition += gunVelocity * Time.deltaTime;
+        // transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, gunFollowSpeed * Time.deltaTime);
 
         aimDirection = mouseWorldPosition - transform.position;
         angle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;

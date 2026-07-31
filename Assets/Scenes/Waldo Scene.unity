@@ -166,7 +166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAim
   playerTransform: {fileID: 471303848}
-  radius: 0.25
+  radius: 0.5
+  springStiffness: 250
+  damping: 10
   gunFollowSpeed: 15
   gunRotateSpeed: 12
 --- !u!114 &51818154
