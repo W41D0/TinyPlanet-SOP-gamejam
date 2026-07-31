@@ -265,9 +265,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: gasBullet
+      value: 
+      objectReference: {fileID: 6636838943677668920, guid: 05e47ecea850ebc46b2f5d70b831e0cb, type: 3}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: solidBullet
       value: 
       objectReference: {fileID: 4077447859269155429, guid: b4ddade9e035b8c4499a0599e638c16c, type: 3}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: liquidBullet
+      value: 
+      objectReference: {fileID: 6632569396784721018, guid: dc0645f3a2668df4d90cbc7480554ead, type: 3}
     - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: solidBulletSpread
       value: 10
