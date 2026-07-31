@@ -277,6 +277,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6632569396784721018, guid: dc0645f3a2668df4d90cbc7480554ead, type: 3}
     - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      propertyPath: plasmaBullet
+      value: 
+      objectReference: {fileID: 307553063612677203, guid: cbb43cf1dbf01c644864306d1d40eb6d, type: 3}
+    - target: {fileID: 6320367203518706027, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: solidBulletSpread
       value: 10
       objectReference: {fileID: 0}

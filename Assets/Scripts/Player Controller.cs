@@ -12,10 +12,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float baseMoveSpeed = 5f;
     [SerializeField] float SprintMultiplier = 1.5f;
     float walkSpeed;
-    Boolean isSprinting;
-    Boolean isShooting;
-    Boolean isOnShootCooldown;
+    bool isSprinting;
 
+    bool isShooting;
+    public bool IsShooting {get => isShooting; set => isShooting = value;}
+
+    bool isOnShootCooldown;
+    public bool IsOnShootCooldown {get => isOnShootCooldown; set => isOnShootCooldown = value;}
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,25 +68,5 @@ public class PlayerController : MonoBehaviour
         {
             isShooting = false;
         }
-    }
-
-    public void SetIsShooting(bool isShooting)
-    {
-        this.isShooting = isShooting;
-    }
-
-    public void SetIsOnShootCooldown(bool isOnShootCooldown)
-    {
-        this.isOnShootCooldown = isOnShootCooldown;
-    }
-
-    public bool GetIsShooting()
-    {
-        return isShooting;
-    }
-
-    public bool GetIsOnShootCooldown()
-    {
-        return isOnShootCooldown;
     }
 }
