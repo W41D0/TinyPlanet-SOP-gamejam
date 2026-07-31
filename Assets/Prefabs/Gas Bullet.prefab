@@ -136,4 +136,4 @@ MonoBehaviour:
   maxLifeTime: 5
   maxRange: 5
   gasShrink: 1
-  gasShrinkAmmount: -0.4
+  gasShrinkAmmount: -0.8
