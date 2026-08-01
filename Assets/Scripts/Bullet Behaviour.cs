@@ -5,6 +5,8 @@ public class BulletBehaviour : MonoBehaviour
 {
     [SerializeField] float maxLifeTime;
     [SerializeField] float maxRange;
+    [SerializeField] bool gasShrink = false;
+    [SerializeField] float gasShrinkAmmount = 0.2f;
 
     Vector3 startPostion;
 
@@ -23,6 +25,13 @@ public class BulletBehaviour : MonoBehaviour
         if(distanceTraveled >= maxRange)
         {
             Destroy(gameObject);
+        }
+
+        if (gasShrink)
+        {
+            Vector3 currentScale = gameObject.transform.localScale;
+            currentScale.x -= gasShrinkAmmount * Time.deltaTime;
+            gameObject.transform.localScale = currentScale;
         }
     }
 

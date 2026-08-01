@@ -248,9 +248,11 @@ public class GunScript : MonoBehaviour
 
     void decreaseMeter()
     {
-        if (timeSinceLastShot > timeBeforeCooldown)
+        if (timeSinceLastShot > timeBeforeCooldown && currentTotalMeter > 0)
         {
             currentTotalMeter -= Time.deltaTime;
+            if (currentTotalMeter < 0)
+                currentTotalMeter = 0;
         }
     }
 }
