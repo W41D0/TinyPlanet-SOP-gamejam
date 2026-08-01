@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0dbf6148253804e4c841ed33359c1358
+guid: fb27b53b601ab34498c2f6f17470972a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8619271453319576127
-    second: bullet-gas_0
+      213: -1658627295818424093
+    second: bullet-plasma_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bullet-gas_0
+      name: bullet-plasma_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 8
-        height: 18
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3a37cd48bdcd9770800000000000000
-      internalID: 8619271453319576127
+      spriteID: 3e0e9f1234f5bf8e0800000000000000
+      internalID: -1658627295818424093
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bullet-gas_0: 8619271453319576127
+      bullet-plasma_0: -1658627295818424093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -103,10 +103,10 @@ TextureImporter:
       name: bullet-liq_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 17
-        height: 8
+        x: 0
+        y: 1
+        width: 8
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
