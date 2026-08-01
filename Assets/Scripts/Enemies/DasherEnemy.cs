@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class DasherEnemy : MonoBehaviour
 {
+    public enum EnemyType { Solid, Liquid, Gas, None }
+
     [Header("Base Settings")]
+    public EnemyType myType = EnemyType.None; 
     [SerializeField] private float health = 10f;
     [SerializeField] private float normalSpeed = 3f;
     [SerializeField] private float damage = 1f;
@@ -121,6 +124,11 @@ public class DasherEnemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void ApplyKnockback(Vector2 pushVector)
+    {
+        transform.position = (Vector2)transform.position + pushVector;
     }
 
     void Die()
