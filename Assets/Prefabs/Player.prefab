@@ -231,25 +231,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunScript
   solidBullet: {fileID: 4077447859269155429, guid: b4ddade9e035b8c4499a0599e638c16c, type: 3}
-  solidBulletSpeed: 10
-  timeBetweenSolidBullets: 0.5
-  solidBulletRecoil: 2
-  solidBulletSpread: 5
+  solidBulletSpeed: 20
+  timeBetweenSolidBullets: 0.15
+  solidBulletRecoil: 7
+  solidBulletSpread: 20
   liquidBullet: {fileID: 6632569396784721018, guid: dc0645f3a2668df4d90cbc7480554ead, type: 3}
-  liquidBulletSpeed: 10
-  timeBetweenLiquidBullets: 0.5
+  liquidBulletSpeed: 7
+  timeBetweenLiquidBullets: 0.005
   liquidBulletRecoil: 2
-  liquidBulletSpread: 5
+  liquidBulletSpread: 3
   gasBullet: {fileID: 6636838943677668920, guid: 05e47ecea850ebc46b2f5d70b831e0cb, type: 3}
-  gasBulletSpeed: 10
-  timeBetweenGasBullets: 0.5
-  gasBulletRecoil: 2
-  gasBulletSpread: 5
+  gasBulletSpeed: 3
+  timeBetweenGasBullets: 1
+  gasBulletRecoil: 8
+  gasBulletSpread: 0
   plasmaBullet: {fileID: 307553063612677203, guid: cbb43cf1dbf01c644864306d1d40eb6d, type: 3}
-  plasmaBulletSpeed: 10
-  timeBetweenPlasmaBullets: 0.5
+  plasmaBulletSpeed: 30
+  timeBetweenPlasmaBullets: 0.005
   plasmaBulletRecoil: 2
-  plasmaBulletSpread: 5
+  plasmaBulletSpread: 50
   maxSolidMeter: 3
   maxLiquidMeter: 3
   maxGasMeter: 3
@@ -257,7 +257,7 @@ MonoBehaviour:
   PlasmaMeter: 0
   meterDepletionRate: 1
   timeBeforeCooldown: 1
---- !u!1 &6175228855897557319
+--- !u!1 &4594147981385889824
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -265,8 +265,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7024237060556115376}
-  - component: {fileID: 4605588636518235901}
+  - component: {fileID: 2430292331804621560}
+  - component: {fileID: 6011152924252062089}
   m_Layer: 0
   m_Name: Spot Light 2D
   m_TagString: Untagged
@@ -274,28 +274,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7024237060556115376
+--- !u!4 &2430292331804621560
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6175228855897557319}
+  m_GameObject: {fileID: 4594147981385889824}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8485424838883465266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4605588636518235901
+--- !u!114 &6011152924252062089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6175228855897557319}
+  m_GameObject: {fileID: 4594147981385889824}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -396,7 +396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1403435668289787795}
-  - {fileID: 7024237060556115376}
+  - {fileID: 2430292331804621560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4806939980390540834
