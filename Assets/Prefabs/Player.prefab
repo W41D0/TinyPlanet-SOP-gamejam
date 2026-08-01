@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2335117204729751184}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: -0, y: 0.288, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 0.015723169, b: 0.015723169, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &3220791540794399326
@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 3220791540794399326}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.61, z: 0}
+  m_LocalPosition: {x: 0, y: 0.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 3617952767985670414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3215709096080673588}
@@ -207,7 +207,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a239d76999391f42b798f1641be5733, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -230,22 +230,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3474fa3520a843a4894dec0bd784ce47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunScript
-  solidBullet: {fileID: 0}
+  solidBullet: {fileID: 4077447859269155429, guid: b4ddade9e035b8c4499a0599e638c16c, type: 3}
   solidBulletSpeed: 10
   timeBetweenSolidBullets: 0.5
   solidBulletRecoil: 2
   solidBulletSpread: 5
-  liquidBullet: {fileID: 0}
+  liquidBullet: {fileID: 6632569396784721018, guid: dc0645f3a2668df4d90cbc7480554ead, type: 3}
   liquidBulletSpeed: 10
   timeBetweenLiquidBullets: 0.5
   liquidBulletRecoil: 2
   liquidBulletSpread: 5
-  gasBullet: {fileID: 0}
+  gasBullet: {fileID: 6636838943677668920, guid: 05e47ecea850ebc46b2f5d70b831e0cb, type: 3}
   gasBulletSpeed: 10
   timeBetweenGasBullets: 0.5
   gasBulletRecoil: 2
   gasBulletSpread: 5
-  plasmaBullet: {fileID: 0}
+  plasmaBullet: {fileID: 307553063612677203, guid: cbb43cf1dbf01c644864306d1d40eb6d, type: 3}
   plasmaBulletSpeed: 10
   timeBetweenPlasmaBullets: 0.5
   plasmaBulletRecoil: 2
@@ -449,7 +449,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.9662297, g: 1, b: 0.16666657, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
