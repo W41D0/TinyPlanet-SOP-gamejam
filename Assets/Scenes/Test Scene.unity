@@ -11533,6 +11533,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.0005300045
       objectReference: {fileID: 0}
+    - target: {fileID: 7692244540357492302, guid: e098108ccaedbb94a92da9b70236ec0d, type: 3}
+      propertyPath: AmplitudeGain
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692244540357492302, guid: e098108ccaedbb94a92da9b70236ec0d, type: 3}
+      propertyPath: FrequencyGain
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
