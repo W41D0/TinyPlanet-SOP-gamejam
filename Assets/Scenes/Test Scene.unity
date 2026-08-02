@@ -452,52 +452,11 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
---- !u!1 &544206367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7095739417626012044, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
-  m_PrefabInstance: {fileID: 2060001090}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &544206372 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8485424838883465266, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
   m_PrefabInstance: {fileID: 2060001090}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &544206373
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544206367}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!1 &544946152
 GameObject:
   m_ObjectHideFlags: 0
@@ -11596,7 +11555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2604236536112403908, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: m_Constraints
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2604236536112403908, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       propertyPath: m_SleepingMode
@@ -11664,10 +11623,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8485424838883465266, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1146314271}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7095739417626012044, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 544206373}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
