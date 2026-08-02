@@ -139,8 +139,11 @@ MonoBehaviour:
   maxLifeTime: 3
   maxRange: 4
   damage: 1
-  bonusDamageMultiplier: 100
+  bonusDamageMultiplier: 2
   knockbackForce: 2
+  canPierce: 0
+  gasGrowth: 0
+  gasGrowthAmmount: 0.2
 --- !u!96 &7831891793079502942
 TrailRenderer:
   serializedVersion: 4

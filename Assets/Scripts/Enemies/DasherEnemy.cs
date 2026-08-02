@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DasherEnemy : MonoBehaviour
 {
@@ -13,7 +14,11 @@ public class DasherEnemy : MonoBehaviour
     [SerializeField] private float damage = 1f;
     [SerializeField] private float playerKnockbackForce = 10f;
     [SerializeField] private bool ignoresIframes = false;
-    [SerializeField] private float damageCooldown = 1f; // How long it waits before hurting the player again
+    [SerializeField] private float damageCooldown = 1f; 
+
+    [Header("Player-Hit Popup")]
+    [Tooltip("Popup prefab shown on the PLAYER when this enemy deals damage. Assign the Solid/Liquid/Gas text prefab matching this enemy's type.")]
+    [SerializeField] private GameObject playerHitPopupPrefab;
 
     [Header("Dash Settings")]
     [SerializeField] private float dashPrepTime = 0.5f;
@@ -26,6 +31,10 @@ public class DasherEnemy : MonoBehaviour
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color prepColor = Color.red;
 
+    [Header("UI Settings")]
+    [SerializeField] private GameObject damagePopupPrefab;
+    private Slider healthBar;
+
     private Transform playerTarget;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb; 
@@ -35,41 +44,38 @@ public class DasherEnemy : MonoBehaviour
     
     private float stateTimer;
     private Vector2 dashDirection; 
-    
-    // Tracks the internal cooldown for dealing damage
     private float currentDamageCooldown = 0f;
 
     void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (playerObj != null)
-        {
-            playerTarget = playerObj.transform;
-        }
+        if (playerObj != null) playerTarget = playerObj.transform;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = normalColor;
-        }
+        if (spriteRenderer != null) spriteRenderer.color = normalColor;
         
         rb = GetComponent<Rigidbody2D>(); 
-        
-        rb.gravityScale = 0f; 
-        rb.freezeRotation = true;
+        if (rb != null)
+        {
+            rb.gravityScale = 0f; 
+            rb.freezeRotation = true;
+        }
         
         currentState = State.Chasing;
         stateTimer = dashCooldown;
+
+        healthBar = GetComponentInChildren<Slider>(true);
+        if (healthBar != null)
+        {
+            healthBar.maxValue = health;
+            healthBar.value = health;
+            healthBar.gameObject.SetActive(false);
+        }
     }
 
     void Update()
     {
-        // Tick down the damage cooldown timer
-        if (currentDamageCooldown > 0f)
-        {
-            currentDamageCooldown -= Time.deltaTime;
-        }
-
+        if (currentDamageCooldown > 0f) currentDamageCooldown -= Time.deltaTime;
         if (playerTarget == null) return;
 
         switch (currentState)
@@ -84,7 +90,6 @@ public class DasherEnemy : MonoBehaviour
                     currentState = State.Preparing;
                     stateTimer = dashPrepTime;
                     rb.linearVelocity = Vector2.zero; 
-                    
                     if (spriteRenderer != null) spriteRenderer.color = prepColor;
                 }
                 break;
@@ -95,7 +100,6 @@ public class DasherEnemy : MonoBehaviour
                 {
                     currentState = State.Dashing;
                     stateTimer = dashDuration;
-                    
                     dashDirection = (playerTarget.position - transform.position).normalized;
                 }
                 break;
@@ -109,7 +113,6 @@ public class DasherEnemy : MonoBehaviour
                     currentState = State.Recovering;
                     stateTimer = dashRecoveryTime;
                     rb.linearVelocity = Vector2.zero; 
-                    
                     if (spriteRenderer != null) spriteRenderer.color = normalColor;
                 }
                 break;
@@ -130,41 +133,48 @@ public class DasherEnemy : MonoBehaviour
                     rb.linearVelocity = Vector2.zero; 
                     currentState = State.Chasing;
                     stateTimer = dashCooldown; 
-                    
                     if (spriteRenderer != null) spriteRenderer.color = normalColor;
                 }
                 break;
         }
     }
 
-    // Changed to Stay2D so it continuously checks while hugging the player
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && currentDamageCooldown <= 0f)
         {
-            // Only deal damage if the internal cooldown has finished
-            if (currentDamageCooldown <= 0f)
+            PlayerHealth ph = collision.gameObject.GetComponent<PlayerHealth>();
+            if (ph != null)
             {
-                PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
-                {
-                    // Pass true to trigger I-frames, and pass the ignoresIframes toggle
-                    playerHealth.TakeDamage(damage, playerKnockbackForce, transform, true, ignoresIframes);
-                    
-                    // Reset the internal cooldown so it doesn't drain the player's health instantly
-                    currentDamageCooldown = damageCooldown;
-                }
+                ph.TakeDamage(damage, playerKnockbackForce, transform, true, ignoresIframes, playerHitPopupPrefab);
+                currentDamageCooldown = damageCooldown;
             }
         }
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, bool isCrit = false)
     {
         health -= amount;
-        if (health <= 0)
+
+        if (healthBar != null) 
         {
-            Die();
+            healthBar.value = health;
+            healthBar.gameObject.SetActive(true);
         }
+
+        if (damagePopupPrefab != null && amount > 0)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0f, 0.5f), 0f);
+            GameObject popup = Instantiate(damagePopupPrefab, transform.position + randomOffset, Quaternion.identity);
+            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
+            
+            if (popupScript != null)
+            {
+                popupScript.Setup(amount, isCrit);
+            }
+        }
+
+        if (health <= 0) Die();
     }
 
     public void ApplyKnockback(Vector2 pushVector)
@@ -178,8 +188,5 @@ public class DasherEnemy : MonoBehaviour
         }
     }
 
-    void Die()
-    {
-        Destroy(gameObject);
-    }
-}   
+    void Die() { Destroy(gameObject); }
+}

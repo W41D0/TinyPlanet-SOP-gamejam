@@ -960,6 +960,7 @@ MonoBehaviour:
   invincibilityDuration: 1.5
   flashCount: 6
   spriteRenderer: {fileID: 4806939980390540834}
+  damagePopupPrefab: {fileID: 1194407985052238174, guid: 29fa2f9ee8daaf742ae6712bbba25e46, type: 3}
 --- !u!114 &4913303555505255026
 MonoBehaviour:
   m_ObjectHideFlags: 0

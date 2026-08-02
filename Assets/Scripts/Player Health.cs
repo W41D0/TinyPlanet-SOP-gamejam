@@ -19,15 +19,18 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int flashCount = 6;
     [SerializeField] private SpriteRenderer spriteRenderer; 
 
+    [Header("Visual Effects")]
+    [Tooltip("Fallback popup prefab used if the attacker doesn't specify one.")]
+    [SerializeField] private GameObject damagePopupPrefab;
+
     private float currentHealth;
     bool isDead = false;
     
     private Rigidbody2D rb;
     private PlayerController movementScript;
     private Coroutine knockbackCoroutine;
-    private Coroutine invincibilityCoroutine; // Added to prevent overlapping flashes
+    private Coroutine invincibilityCoroutine; 
 
-    // Invincibility tracking
     private bool isInvincible = false;
     private int lastDamageFrame = -1;
     private float highestDamageThisFrame = 0f;
@@ -79,19 +82,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Added ignoresIframes parameter
-    public void TakeDamage(float damage, float knockbackForce, Transform enemyTransform, bool triggersInvincibility = true, bool ignoresIframes = false)
+    public void TakeDamage(float damage, float knockbackForce, Transform enemyTransform, bool triggersInvincibility = true, bool ignoresIframes = false, GameObject popupPrefabOverride = null)
     {
         if (isDead) return;
 
         bool hitOnSameFrame = (Time.frameCount == lastDamageFrame);
 
-        // If we are invincible and this attack doesn't pierce I-frames, and it isn't the exact same frame as another hit, ignore it
         if (isInvincible && !ignoresIframes && !hitOnSameFrame) return; 
 
         float actualDamageToApply = damage;
 
-        // --- Same Frame Priority Logic ---
         if (hitOnSameFrame)
         {
             if (damage > highestDamageThisFrame)
@@ -127,6 +127,21 @@ public class PlayerHealth : MonoBehaviour
         }
 
         SetHealth(currentHealth - actualDamageToApply);
+
+        // Use the attacker's popup prefab (already colored for its element) if it gave us one, otherwise our own default.
+        GameObject prefabToUse = popupPrefabOverride != null ? popupPrefabOverride : damagePopupPrefab;
+
+        if (prefabToUse != null && actualDamageToApply > 0)
+        {
+            Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(0f, 0.5f), 0f);
+            GameObject popup = Instantiate(prefabToUse, transform.position + randomOffset, Quaternion.identity);
+            
+            DamagePopup popupScript = popup.GetComponent<DamagePopup>();
+            if (popupScript != null)
+            {
+                popupScript.Setup(actualDamageToApply);
+            }
+        }
     }
 
     private IEnumerator InvincibilityRoutine()
@@ -136,7 +151,6 @@ public class PlayerHealth : MonoBehaviour
         if (spriteRenderer != null)
         {
             Color originalColor = spriteRenderer.color;
-            // Force alpha to 1 at the start in case a previous routine was interrupted
             originalColor.a = 1f; 
             spriteRenderer.color = originalColor;
 

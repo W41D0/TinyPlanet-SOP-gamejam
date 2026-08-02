@@ -138,8 +138,11 @@ MonoBehaviour:
   maxLifeTime: 3
   maxRange: 15
   damage: 1
-  bonusDamageMultiplier: 100
+  bonusDamageMultiplier: 2
   knockbackForce: 2
+  canPierce: 0
+  gasGrowth: 0
+  gasGrowthAmmount: 0.2
 --- !u!61 &-7921614706653113193
 BoxCollider2D:
   m_ObjectHideFlags: 0

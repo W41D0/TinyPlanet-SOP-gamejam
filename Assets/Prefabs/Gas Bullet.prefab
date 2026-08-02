@@ -138,8 +138,8 @@ MonoBehaviour:
   maxLifeTime: 5
   maxRange: 5
   damage: 1
-  bonusDamageMultiplier: 100
-  knockbackForce: 2
+  bonusDamageMultiplier: 2
+  knockbackForce: 20
   canPierce: 1
   gasGrowth: 1
   gasGrowthAmmount: 0.8
