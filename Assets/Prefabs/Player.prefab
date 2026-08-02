@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3215709096080673588}
   - component: {fileID: 4966409194968097202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2395284852070462533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 5183378521661967255}
   - component: {fileID: 6320367203518706027}
   - component: {fileID: 5757305198184289112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ MonoBehaviour:
   solidBulletSpread: 20
   liquidBullet: {fileID: 6632569396784721018, guid: dc0645f3a2668df4d90cbc7480554ead, type: 3}
   liquidBulletSpeed: 7
-  timeBetweenLiquidBullets: 0.005
+  timeBetweenLiquidBullets: 0.02
   liquidBulletRecoil: 2
   liquidBulletSpread: 3
   gasBullet: {fileID: 6636838943677668920, guid: 05e47ecea850ebc46b2f5d70b831e0cb, type: 3}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 5617467212926549122}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -955,8 +955,11 @@ MonoBehaviour:
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
   totalHealth: 100
-  stunTime: 0
+  stunTime: 0.1
   deathMenuDelay: 3
+  invincibilityDuration: 1.5
+  flashCount: 6
+  spriteRenderer: {fileID: 4806939980390540834}
 --- !u!114 &4913303555505255026
 MonoBehaviour:
   m_ObjectHideFlags: 0

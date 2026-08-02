@@ -12,9 +12,12 @@ public class BulletBehaviour : MonoBehaviour
     [SerializeField] float maxRange = 15f;
     [SerializeField] float damage = 1f;
     [SerializeField] float bonusDamageMultiplier = 2f;
+    [SerializeField] float knockbackForce = 2f;
+    [SerializeField] bool canPierce = false;
 
     [Header("Gas Settings (Only works if Gas)")]
-    [SerializeField] float knockbackForce = 2f;
+    [SerializeField] bool gasGrowth = false;
+    [SerializeField] float gasGrowthAmmount = 0.2f;
 
     private Vector3 startPostion;
     private List<GameObject> hitEnemies = new List<GameObject>();
@@ -32,20 +35,30 @@ public class BulletBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        if (typeOfBullet == BulletType.Gas && gasGrowth)
+        {
+            Vector3 currentScale = gameObject.transform.localScale;
+            currentScale.x += gasGrowthAmmount * Time.deltaTime;
+            gameObject.transform.localScale = currentScale;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            if (hitEnemies.Contains(collision.gameObject)) return;
+            hitEnemies.Add(collision.gameObject);
+
             float finalDamage = damage;
             bool isWeaknessHit = false;
 
             NormalEnemy normalEnemy = collision.gameObject.GetComponent<NormalEnemy>();
             if (normalEnemy != null &&
                 ((typeOfBullet == BulletType.Solid && normalEnemy.myType == NormalEnemy.EnemyType.Solid) ||
-                 (typeOfBullet == BulletType.Liquid && normalEnemy.myType == NormalEnemy.EnemyType.Liquid) ||
-                 (typeOfBullet == BulletType.Gas && normalEnemy.myType == NormalEnemy.EnemyType.Gas)))
+                (typeOfBullet == BulletType.Liquid && normalEnemy.myType == NormalEnemy.EnemyType.Liquid) ||
+                (typeOfBullet == BulletType.Gas && normalEnemy.myType == NormalEnemy.EnemyType.Gas)))
             {
                 isWeaknessHit = true;
             }
@@ -53,8 +66,8 @@ public class BulletBehaviour : MonoBehaviour
             DasherEnemy dasherEnemy = collision.gameObject.GetComponent<DasherEnemy>();
             if (dasherEnemy != null &&
                 ((typeOfBullet == BulletType.Solid && dasherEnemy.myType == DasherEnemy.EnemyType.Solid) ||
-                 (typeOfBullet == BulletType.Liquid && dasherEnemy.myType == DasherEnemy.EnemyType.Liquid) ||
-                 (typeOfBullet == BulletType.Gas && dasherEnemy.myType == DasherEnemy.EnemyType.Gas)))
+                (typeOfBullet == BulletType.Liquid && dasherEnemy.myType == DasherEnemy.EnemyType.Liquid) ||
+                (typeOfBullet == BulletType.Gas && dasherEnemy.myType == DasherEnemy.EnemyType.Gas)))
             {
                 isWeaknessHit = true;
             }
@@ -62,8 +75,8 @@ public class BulletBehaviour : MonoBehaviour
             ShooterEnemy shooterEnemy = collision.gameObject.GetComponent<ShooterEnemy>();
             if (shooterEnemy != null &&
                 ((typeOfBullet == BulletType.Solid && shooterEnemy.myType == ShooterEnemy.EnemyType.Solid) ||
-                 (typeOfBullet == BulletType.Liquid && shooterEnemy.myType == ShooterEnemy.EnemyType.Liquid) ||
-                 (typeOfBullet == BulletType.Gas && shooterEnemy.myType == ShooterEnemy.EnemyType.Gas)))
+                (typeOfBullet == BulletType.Liquid && shooterEnemy.myType == ShooterEnemy.EnemyType.Liquid) ||
+                (typeOfBullet == BulletType.Gas && shooterEnemy.myType == ShooterEnemy.EnemyType.Gas)))
             {
                 isWeaknessHit = true;
             }
@@ -73,19 +86,22 @@ public class BulletBehaviour : MonoBehaviour
                 finalDamage *= bonusDamageMultiplier;
             }
 
+            collision.gameObject.SendMessage("TakeDamage", finalDamage, SendMessageOptions.DontRequireReceiver);
+
+            Vector2 pushDirection;
             if (typeOfBullet == BulletType.Gas)
             {
-                if (hitEnemies.Contains(collision.gameObject)) return;
-
-                hitEnemies.Add(collision.gameObject);
-                collision.gameObject.SendMessage("TakeDamage", finalDamage, SendMessageOptions.DontRequireReceiver);
-
-                Vector2 pushDirection = transform.up;
-                collision.gameObject.SendMessage("ApplyKnockback", pushDirection * knockbackForce, SendMessageOptions.DontRequireReceiver);
+                pushDirection = (collision.transform.position - transform.position).normalized;
             }
             else
             {
-                collision.gameObject.SendMessage("TakeDamage", finalDamage, SendMessageOptions.DontRequireReceiver);
+                pushDirection = transform.up; 
+            }
+            
+            collision.gameObject.SendMessage("ApplyKnockback", pushDirection * knockbackForce, SendMessageOptions.DontRequireReceiver);
+            
+            if (!canPierce)
+            {
                 Destroy(gameObject);
             }
         }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1592116942151654733}
   - component: {fileID: 6827691502684637375}
   - component: {fileID: 7573662355912448850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dasher Enemy Gas
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -171,13 +171,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DasherEnemy
   myType: 2
-  health: 40
-  normalSpeed: 0
+  health: 1000
+  normalSpeed: 2
   damage: 1
+  playerKnockbackForce: 10
+  ignoresIframes: 0
+  damageCooldown: 1
   dashPrepTime: 0.5
   dashSpeed: 15
-  dashDistance: 5
+  dashDuration: 0.3
   dashRecoveryTime: 1
-  dashCooldown: 300
+  dashCooldown: 3
   normalColor: {r: 0.2627451, g: 0.9725491, b: 0.4039216, a: 1}
   prepColor: {r: 1, g: 0, b: 0, a: 1}

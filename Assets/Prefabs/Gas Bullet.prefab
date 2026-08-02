@@ -140,6 +140,9 @@ MonoBehaviour:
   damage: 1
   bonusDamageMultiplier: 100
   knockbackForce: 2
+  canPierce: 1
+  gasGrowth: 1
+  gasGrowthAmmount: 0.8
 --- !u!61 &-3005464913679995001
 BoxCollider2D:
   m_ObjectHideFlags: 0
