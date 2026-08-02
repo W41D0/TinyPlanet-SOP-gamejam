@@ -8,9 +8,7 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] private float disappearTimerMax = 0.5f;
     
     [Header("Colors")]
-    [Tooltip("This popup's normal color. For elemental popups (gas/liquid/solid text prefabs), set this to that element's color.")]
     [SerializeField] private Color textColor = Color.red;
-    [Tooltip("Color used instead of textColor when this hit is flagged as a critical / type-weakness hit.")]
     [SerializeField] private Color critColor = Color.red;
 
     private float disappearTimer;
