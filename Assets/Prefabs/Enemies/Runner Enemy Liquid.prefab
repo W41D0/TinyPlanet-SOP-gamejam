@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 1377051605828880437}
   - component: {fileID: 8102807197104637678}
   - component: {fileID: 7756022971665747693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Runner Enemy Liquid
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -281,10 +281,7 @@ MonoBehaviour:
   playerKnockbackForce: 10
   ignoresIframes: 0
   damageCooldown: 1
-  solidColor: {r: 0.8, g: 0.5, b: 0.2, a: 1}
-  liquidColor: {r: 0, g: 1, b: 1, a: 1}
-  gasColor: {r: 0, g: 1, b: 0, a: 1}
-  defaultColor: {r: 1, g: 0, b: 0, a: 1}
+  playerHitPopupPrefab: {fileID: 0}
   damagePopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
 --- !u!1 &5327811954605670581
 GameObject:

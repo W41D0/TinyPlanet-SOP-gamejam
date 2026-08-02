@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 9017377873403351618}
   - component: {fileID: 8947528332879514581}
   - component: {fileID: 519504721602022124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Runner Enemy Soild
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -253,10 +253,7 @@ MonoBehaviour:
   playerKnockbackForce: 10
   ignoresIframes: 0
   damageCooldown: 1
-  solidColor: {r: 0.8, g: 0.5, b: 0.2, a: 1}
-  liquidColor: {r: 0, g: 1, b: 1, a: 1}
-  gasColor: {r: 0, g: 1, b: 0, a: 1}
-  defaultColor: {r: 1, g: 0, b: 0, a: 1}
+  playerHitPopupPrefab: {fileID: 0}
   damagePopupPrefab: {fileID: 1156406043525471362, guid: f664723194da0684189abeea01408c80, type: 3}
 --- !u!1 &5739133540873996816
 GameObject:
