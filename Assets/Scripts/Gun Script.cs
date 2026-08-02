@@ -93,6 +93,8 @@ public class GunScript : MonoBehaviour
 
     public float GasMeter => Mathf.Clamp(currentTotalMeter - (maxSolidMeter + maxLiquidMeter), 0, maxGasMeter);
 
+    public float MaxTotalMeter => maxSolidMeter + maxLiquidMeter + maxGasMeter;
+
     public float PlasmaMeter = 0f;
 
     [SerializeField] private float meterDepletionRate = 1f;
