@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 7617780950195385282}
   - component: {fileID: 5183378521661967255}
   - component: {fileID: 6320367203518706027}
+  - component: {fileID: 1609163748555525076}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -150,8 +151,8 @@ Transform:
   m_GameObject: {fileID: 3617952767985670414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 5, z: 1}
+  m_LocalPosition: {x: 1.97, y: -0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3215709096080673588}
