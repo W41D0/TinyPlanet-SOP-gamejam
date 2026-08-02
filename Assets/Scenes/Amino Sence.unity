@@ -370,14 +370,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dasher Enemy Soild
       objectReference: {fileID: 0}
-    - target: {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -435,10 +427,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter Enemy Liquid
       objectReference: {fileID: 0}
-    - target: {fileID: 8946783045268601246, guid: 88ecc22bcf38bca4c9e152f2355a8169, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -455,14 +443,6 @@ PrefabInstance:
     - target: {fileID: 5742358594682867959, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
       propertyPath: m_Name
       value: Normal Enemy Solid
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742358594682867959, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5742358594682867959, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7034748279534795782, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,10 +541,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter Enemy Solid
       objectReference: {fileID: 0}
-    - target: {fileID: 8706850968802656049, guid: 7f919d508e0c4d742beb03668c837df2, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -581,14 +557,6 @@ PrefabInstance:
     - target: {fileID: 711298416609489085, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
       propertyPath: m_Name
       value: Normal Enemy Liquid
-      objectReference: {fileID: 0}
-    - target: {fileID: 711298416609489085, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 711298416609489085, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8924999583963542847, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -647,14 +615,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runner Enemy Gas
       objectReference: {fileID: 0}
-    - target: {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4461122239280174855, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.11
@@ -711,10 +671,6 @@ PrefabInstance:
     - target: {fileID: 1879100476606319908, guid: c107884d68889ad4589d9db33f9917e0, type: 3}
       propertyPath: m_Name
       value: Dasher Enemy Gas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1879100476606319908, guid: c107884d68889ad4589d9db33f9917e0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6426812863431287067, guid: c107884d68889ad4589d9db33f9917e0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -813,10 +769,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter Enemy Gas
       objectReference: {fileID: 0}
-    - target: {fileID: 7635354098370165053, guid: 5aaef14663c33e44ab534fea6656720d, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -833,14 +785,6 @@ PrefabInstance:
     - target: {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
       propertyPath: m_Name
       value: Runner Enemy Liquid
-      objectReference: {fileID: 0}
-    - target: {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4827663593184093456, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
       propertyPath: m_LocalPosition.x
@@ -898,14 +842,6 @@ PrefabInstance:
     - target: {fileID: 3066654154824918605, guid: ca288543ff1d98f41b22d1d69d02cb92, type: 3}
       propertyPath: m_Name
       value: Dasher Enemy Liquid
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066654154824918605, guid: ca288543ff1d98f41b22d1d69d02cb92, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3066654154824918605, guid: ca288543ff1d98f41b22d1d69d02cb92, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4657753579715699127, guid: ca288543ff1d98f41b22d1d69d02cb92, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1004,14 +940,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Enemy Gas
       objectReference: {fileID: 0}
-    - target: {fileID: 3041931519834277437, guid: 1572232b54b9c4442b3e9dabf8b633be, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3041931519834277437, guid: 1572232b54b9c4442b3e9dabf8b633be, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1028,14 +956,6 @@ PrefabInstance:
     - target: {fileID: 3772320657850340916, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
       propertyPath: m_Name
       value: Runner Enemy Soild
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772320657850340916, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772320657850340916, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7403627907387798676, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
       propertyPath: m_LocalPosition.x
