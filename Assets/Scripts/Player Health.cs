@@ -153,16 +153,4 @@ public class PlayerHealth : MonoBehaviour
         if (!isDead && movementScript != null)
             movementScript.enabled = true;
     }
-
-    [ContextMenu("Test Health")]
-    void healthTest()
-    {
-        SetHealth(currentHealth / 2f);
-    }
-
-    [ContextMenu("Test Health 2")]
-    void healthTest2()
-    {
-        TakeDamage(20, 2, transform);
-    }
 }
