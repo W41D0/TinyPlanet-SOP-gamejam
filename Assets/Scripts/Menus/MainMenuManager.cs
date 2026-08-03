@@ -5,12 +5,12 @@ public class MainMenuManager : MonoBehaviour
 {
     public GameObject mainMenuPanel; 
     public GameObject controlsPanel; 
-
+    public GameObject stuffpanel;
     public string gameSceneName = "Level1"; 
 
     public void PlayGame()
-    {
-        SceneManager.LoadScene(gameSceneName);
+    {   
+        if (stuffpanel != null) stuffpanel.SetActive(true);
     }
 
     public void ShowControlsPanel()
@@ -24,7 +24,10 @@ public class MainMenuManager : MonoBehaviour
         if (mainMenuPanel != null) mainMenuPanel.SetActive(true);
         if (controlsPanel != null) controlsPanel.SetActive(false);
     }
-
+    public void okiee()
+    {
+        SceneManager.LoadScene(gameSceneName);
+    }
     public void QuitGame()
     {
         Debug.Log("Game is exiting...");
