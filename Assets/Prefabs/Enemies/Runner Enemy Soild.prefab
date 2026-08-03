@@ -88,6 +88,8 @@ GameObject:
   - component: {fileID: 9017377873403351618}
   - component: {fileID: 8947528332879514581}
   - component: {fileID: 519504721602022124}
+  - component: {fileID: 5653814556470581582}
+  - component: {fileID: 2591677451179383995}
   m_Layer: 6
   m_Name: Runner Enemy Soild
   m_TagString: Enemy
@@ -246,15 +248,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd57e7995022f5540bab06ef3e2572bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
+  speed: 6
+--- !u!114 &5653814556470581582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772320657850340916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   myType: 0
-  health: 50
-  speed: 0
-  damage: 1
-  playerKnockbackForce: 10
-  ignoresIframes: 0
-  damageCooldown: 1
-  playerHitPopupPrefab: {fileID: 0}
+  maxHealth: 20
   damagePopupPrefab: {fileID: 1156406043525471362, guid: f664723194da0684189abeea01408c80, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2591677451179383995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772320657850340916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 1
+  isProjectile: 0
+  damage: 2
+  playerKnockbackForce: 10
+  ignoresIframes: 1
+  damageCooldown: 0.5
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 1156406043525471362, guid: f664723194da0684189abeea01408c80, type: 3}
 --- !u!1 &5739133540873996816
 GameObject:
   m_ObjectHideFlags: 0

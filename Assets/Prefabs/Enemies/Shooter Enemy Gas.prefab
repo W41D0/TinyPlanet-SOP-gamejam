@@ -391,6 +391,8 @@ GameObject:
   - component: {fileID: 2331587788515329826}
   - component: {fileID: 1009314966457801963}
   - component: {fileID: 3541700190476748255}
+  - component: {fileID: 6404497154103505738}
+  - component: {fileID: 6481165134641592263}
   m_Layer: 0
   m_Name: Shooter Enemy Gas
   m_TagString: Enemy
@@ -549,17 +551,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65437997230aff8489d3e8e18fbfc8e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemy
-  myType: 2
-  health: 10
-  speed: 3
+  speed: 4
   stoppingDistance: 6
   retreatDistance: 4
-  contactDamage: 1
-  playerKnockbackForce: 5
-  ignoresIframes: 0
-  damageCooldown: 1
   bulletPrefab: {fileID: 5805961207630650706, guid: 7b219e43be7a0f14ab6b6c893e2da8a6, type: 3}
   shootingRange: 20
   fireRate: 1
   spreadAngle: 10
+--- !u!114 &6404497154103505738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635354098370165053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  myType: 2
+  maxHealth: 40
   damagePopupPrefab: {fileID: 4987330519298562908, guid: 367d9aa1d96684544b0acb68c7c45fec, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6481165134641592263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7635354098370165053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 0
+  isProjectile: 1
+  damage: 3
+  playerKnockbackForce: 10
+  ignoresIframes: 0
+  damageCooldown: 1
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 4987330519298562908, guid: 367d9aa1d96684544b0acb68c7c45fec, type: 3}

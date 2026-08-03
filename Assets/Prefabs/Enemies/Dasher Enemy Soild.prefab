@@ -280,6 +280,8 @@ GameObject:
   - component: {fileID: 3241805428092710196}
   - component: {fileID: 7362752540756170789}
   - component: {fileID: 7349543850272906551}
+  - component: {fileID: 5024328484823304588}
+  - component: {fileID: 7636518579761598485}
   m_Layer: 0
   m_Name: Dasher Enemy Soild
   m_TagString: Enemy
@@ -438,13 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4053289471c5e474ab2adb3876919a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DasherEnemy
-  myType: 0
-  health: 40
-  normalSpeed: 0
-  damage: 1
-  playerKnockbackForce: 10
-  ignoresIframes: 0
-  damageCooldown: 1
+  normalSpeed: 2
   dashPrepTime: 0.5
   dashSpeed: 15
   dashDuration: 0.3
@@ -452,7 +448,45 @@ MonoBehaviour:
   dashCooldown: 300
   normalColor: {r: 0, g: 0, b: 0, a: 1}
   prepColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &5024328484823304588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279242373925183671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  myType: 0
+  maxHealth: 100
   damagePopupPrefab: {fileID: 1156406043525471362, guid: f664723194da0684189abeea01408c80, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7636518579761598485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279242373925183671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 1
+  isProjectile: 0
+  damage: 15
+  playerKnockbackForce: 20
+  ignoresIframes: 0
+  damageCooldown: 1
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 1156406043525471362, guid: f664723194da0684189abeea01408c80, type: 3}
 --- !u!1 &5482033017267892179
 GameObject:
   m_ObjectHideFlags: 0

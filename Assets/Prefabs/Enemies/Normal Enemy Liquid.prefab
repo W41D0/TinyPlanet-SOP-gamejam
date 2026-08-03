@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3677792009072222475}
   - component: {fileID: 4604709412878344019}
   - component: {fileID: 1353364671391787988}
+  - component: {fileID: 1596235597295256386}
+  - component: {fileID: 2613390095225568106}
   m_Layer: 0
   m_Name: Normal Enemy Liquid
   m_TagString: Enemy
@@ -171,18 +173,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd57e7995022f5540bab06ef3e2572bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
+  speed: 4
+--- !u!114 &1596235597295256386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711298416609489085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   myType: 1
-  health: 10
-  speed: 3
-  damage: 1
+  maxHealth: 40
+  damagePopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2613390095225568106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711298416609489085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 1
+  isProjectile: 0
+  damage: 10
   playerKnockbackForce: 10
   ignoresIframes: 0
   damageCooldown: 1
-  solidColor: {r: 0.8, g: 0.5, b: 0.2, a: 1}
-  liquidColor: {r: 0, g: 1, b: 1, a: 1}
-  gasColor: {r: 0, g: 1, b: 0, a: 1}
-  defaultColor: {r: 1, g: 0, b: 0, a: 1}
-  damagePopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
 --- !u!1 &1178675435259711821
 GameObject:
   m_ObjectHideFlags: 0

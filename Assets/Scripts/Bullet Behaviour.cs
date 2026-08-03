@@ -51,85 +51,34 @@ public class BulletBehaviour : MonoBehaviour
             if (hitEnemies.Contains(collision.gameObject)) return;
             hitEnemies.Add(collision.gameObject);
 
-            NormalEnemy normalEnemy = collision.gameObject.GetComponent<NormalEnemy>();
-            DasherEnemy dasherEnemy = collision.gameObject.GetComponent<DasherEnemy>();
-            ShooterEnemy shooterEnemy = collision.gameObject.GetComponent<ShooterEnemy>();
-            SpawnerEnemy spawnerEnemy = collision.gameObject.GetComponent<SpawnerEnemy>();
-            SplittingEnemy splittingEnemy = collision.gameObject.GetComponent<SplittingEnemy>();
-            ExplodingEnemy explodingEnemy = collision.gameObject.GetComponent<ExplodingEnemy>();
-
-            float finalDamage = damage;
-            bool isWeaknessHit = typeOfBullet == BulletType.Plasma;
-
-            if (!isWeaknessHit)
-            {
-                if (normalEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && normalEnemy.myType == NormalEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && normalEnemy.myType == NormalEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && normalEnemy.myType == NormalEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-
-                if (dasherEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && dasherEnemy.myType == DasherEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && dasherEnemy.myType == DasherEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && dasherEnemy.myType == DasherEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-
-                if (shooterEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && shooterEnemy.myType == ShooterEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && shooterEnemy.myType == ShooterEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && shooterEnemy.myType == ShooterEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-
-                if (spawnerEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && spawnerEnemy.myType == SpawnerEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && spawnerEnemy.myType == SpawnerEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && spawnerEnemy.myType == SpawnerEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-
-                if (splittingEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && splittingEnemy.myType == SplittingEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && splittingEnemy.myType == SplittingEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && splittingEnemy.myType == SplittingEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-
-                if (explodingEnemy != null &&
-                    ((typeOfBullet == BulletType.Solid && explodingEnemy.myType == ExplodingEnemy.EnemyType.Solid) ||
-                    (typeOfBullet == BulletType.Liquid && explodingEnemy.myType == ExplodingEnemy.EnemyType.Liquid) ||
-                    (typeOfBullet == BulletType.Gas && explodingEnemy.myType == ExplodingEnemy.EnemyType.Gas)))
-                {
-                    isWeaknessHit = true;
-                }
-            }
-                if (isWeaknessHit)
-                {
-                    finalDamage *= bonusDamageMultiplier;
-                }
-
-            Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
-            Vector2 knockbackVector = pushDirection * knockbackForce;
-
-            if (normalEnemy != null) { normalEnemy.TakeDamage(finalDamage, isWeaknessHit); normalEnemy.ApplyKnockback(knockbackVector); }
-            if (dasherEnemy != null) { dasherEnemy.TakeDamage(finalDamage, isWeaknessHit); dasherEnemy.ApplyKnockback(knockbackVector); }
-            if (shooterEnemy != null) { shooterEnemy.TakeDamage(finalDamage, isWeaknessHit); shooterEnemy.ApplyKnockback(knockbackVector); }
-            if (spawnerEnemy != null) { spawnerEnemy.TakeDamage(finalDamage, isWeaknessHit); spawnerEnemy.ApplyKnockback(knockbackVector); }
-            if (splittingEnemy != null) { splittingEnemy.TakeDamage(finalDamage, isWeaknessHit); splittingEnemy.ApplyKnockback(knockbackVector); }
-            if (explodingEnemy != null) { explodingEnemy.TakeDamage(finalDamage, isWeaknessHit); explodingEnemy.ApplyKnockback(knockbackVector); }
+            EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
             
-            if (!canPierce)
+            if (enemyHealth != null)
             {
-                Destroy(gameObject);
+                float finalDamage = damage;
+                bool isWeaknessHit = typeOfBullet == BulletType.Plasma;
+
+                if (!isWeaknessHit)
+                {
+                    if ((typeOfBullet == BulletType.Solid && enemyHealth.myType == EnemyType.Solid) ||
+                        (typeOfBullet == BulletType.Liquid && enemyHealth.myType == EnemyType.Liquid) ||
+                        (typeOfBullet == BulletType.Gas && enemyHealth.myType == EnemyType.Gas))
+                    {
+                        isWeaknessHit = true;
+                    }
+                }
+
+                if (isWeaknessHit) finalDamage *= bonusDamageMultiplier;
+
+                Vector2 pushDirection = (collision.transform.position - transform.position).normalized;
+                Vector2 knockbackVector = pushDirection * knockbackForce;
+
+                enemyHealth.TakeDamage(finalDamage, isWeaknessHit);
+                enemyHealth.ApplyKnockback(knockbackVector);
             }
+            
+            if (!canPierce) 
+                Destroy(gameObject);
         }
     }
 

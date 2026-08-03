@@ -124,6 +124,8 @@ GameObject:
   - component: {fileID: 5507627825798306288}
   - component: {fileID: 7204499017522216494}
   - component: {fileID: 4640452966109376199}
+  - component: {fileID: 2698747266529279800}
+  - component: {fileID: 7356574964386674088}
   m_Layer: 0
   m_Name: Dasher Enemy Liquid
   m_TagString: Enemy
@@ -282,13 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4053289471c5e474ab2adb3876919a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DasherEnemy
-  myType: 1
-  health: 40
-  normalSpeed: 0
-  damage: 1
-  playerKnockbackForce: 10
-  ignoresIframes: 0
-  damageCooldown: 1
+  normalSpeed: 2
   dashPrepTime: 0.5
   dashSpeed: 15
   dashDuration: 0.3
@@ -296,7 +292,45 @@ MonoBehaviour:
   dashCooldown: 300
   normalColor: {r: 0.0627451, g: 0.19215688, b: 1, a: 1}
   prepColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &2698747266529279800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3066654154824918605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  myType: 1
+  maxHealth: 100
   damagePopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7356574964386674088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3066654154824918605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 1
+  isProjectile: 0
+  damage: 15
+  playerKnockbackForce: 20
+  ignoresIframes: 0
+  damageCooldown: 1
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
 --- !u!1 &7586233110046920162
 GameObject:
   m_ObjectHideFlags: 0

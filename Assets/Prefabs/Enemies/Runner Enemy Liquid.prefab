@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 1377051605828880437}
   - component: {fileID: 8102807197104637678}
   - component: {fileID: 7756022971665747693}
+  - component: {fileID: 1816930632558681082}
+  - component: {fileID: 2300044141220193271}
   m_Layer: 6
   m_Name: Runner Enemy Liquid
   m_TagString: Enemy
@@ -274,15 +276,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd57e7995022f5540bab06ef3e2572bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemy
+  speed: 6
+--- !u!114 &1816930632558681082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804402802043390265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b8660c0a05a014ba7ebd0e0e4ac250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   myType: 1
-  health: 50
-  speed: 0
-  damage: 1
-  playerKnockbackForce: 10
-  ignoresIframes: 0
-  damageCooldown: 1
-  playerHitPopupPrefab: {fileID: 0}
+  maxHealth: 20
   damagePopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2300044141220193271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3804402802043390265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc6224c46ecc234695cbbd723a93b87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
+  dealsContactDamage: 1
+  isProjectile: 0
+  damage: 2
+  playerKnockbackForce: 10
+  ignoresIframes: 1
+  damageCooldown: 0.5
+  selfKnockbackForce: 5
+  selfDamageOnHit: 0
+  playerHitPopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
 --- !u!1 &5327811954605670581
 GameObject:
   m_ObjectHideFlags: 0

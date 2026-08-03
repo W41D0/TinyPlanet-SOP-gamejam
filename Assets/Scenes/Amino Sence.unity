@@ -615,6 +615,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Runner Enemy Gas
       objectReference: {fileID: 0}
+    - target: {fileID: 561721426318133615, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
+      propertyPath: selfKnockbackForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 561721426318133615, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
+      propertyPath: playerKnockbackForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4461122239280174855, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.11
@@ -782,6 +790,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2300044141220193271, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
+      propertyPath: selfKnockbackForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300044141220193271, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
+      propertyPath: playerKnockbackForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
       propertyPath: m_Name
       value: Runner Enemy Liquid
@@ -953,6 +969,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2591677451179383995, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
+      propertyPath: selfKnockbackForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2591677451179383995, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
+      propertyPath: playerKnockbackForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3772320657850340916, guid: e4771bfd6511a4941a756c40c99afb12, type: 3}
       propertyPath: m_Name
       value: Runner Enemy Soild
