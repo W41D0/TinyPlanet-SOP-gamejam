@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
 
     bool isOnShootCooldown;
     public bool IsOnShootCooldown {get => isOnShootCooldown; set => isOnShootCooldown = value;}
-
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +35,16 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         rb.linearVelocity = moveDirection * walkSpeed * SpeedMultiplier;
+
+        if (spriteRenderer != null && moveDirection.x != 0f)
+        {
+            spriteRenderer.flipX = moveDirection.x < 0f;
+        }
+
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", moveDirection.magnitude);
+        }
     }
 
     void OnMove(InputValue value)

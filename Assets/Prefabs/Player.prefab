@@ -6003,6 +6003,8 @@ MonoBehaviour:
   SpeedMultiplier: 1
   baseMoveSpeed: 5
   SprintMultiplier: 1.5
+  spriteRenderer: {fileID: 4806939980390540834}
+  animator: {fileID: 8359336498883266309}
 --- !u!61 &5617467212926549122
 BoxCollider2D:
   m_ObjectHideFlags: 0
