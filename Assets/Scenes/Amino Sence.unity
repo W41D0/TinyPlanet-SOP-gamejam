@@ -124,62 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8924999583963542847, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
   m_PrefabInstance: {fileID: 3134355008227154981}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &305819873
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 305819875}
-  - component: {fileID: 305819874}
-  m_Layer: 0
-  m_Name: Wave Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &305819874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305819873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0ad0e3c11ccff4f83014a5a1ae4c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  waves:
-  - waveName: Wave 1
-    enemyGroups:
-    - enemyPrefab: {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
-      enemyCount: 30
-    - enemyPrefab: {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
-      enemyCount: 30
-    spawnRate: 1
-  spawnArea: {fileID: 1976410675}
-  warningCirclePrefab: {fileID: 1063003859}
-  warningDuration: 1
---- !u!4 &305819875
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 305819873}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.4445, y: -4.81741, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1976410674}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &309363881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1034811817440909624, guid: 88ecc22bcf38bca4c9e152f2355a8169, type: 3}
@@ -237,11 +181,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 161734693650323232, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
   m_PrefabInstance: {fileID: 1083429661370164092}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1063003859 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7182726549230076661, guid: 96453ac09211dda4191896cb8c176f54, type: 3}
-  m_PrefabInstance: {fileID: 189048297010764340}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1065235677 stripped
 Transform:
@@ -420,84 +359,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8485424838883465266, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
   m_PrefabInstance: {fileID: 2070388351}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1976410673
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1976410674}
-  - component: {fileID: 1976410675}
-  m_Layer: 0
-  m_Name: SpawnArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1976410674
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976410673}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.5894604, y: 2.26608, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 305819875}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1976410675
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1976410673}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &1990236084 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461122239280174855, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
@@ -1323,5 +1184,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 2070388351}
   - {fileID: 324565787}
-  - {fileID: 305819875}
   - {fileID: 189048297010764340}
