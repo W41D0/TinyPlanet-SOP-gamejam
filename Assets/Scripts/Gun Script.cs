@@ -105,7 +105,9 @@ public class GunScript : MonoBehaviour
 
     float timeSinceLastShot = 0f;
 //----------------------------------------------------------------------------------------------------
-    
+    [Header("UI Reference")]
+    [SerializeField] private ProceduralPhaseMeter uiMeter;
+
     Transform bulletSpawnObject;
 
     string currentState = "s";
@@ -158,7 +160,19 @@ public class GunScript : MonoBehaviour
                 currentTotalMeter = 0;
             }
         }
-
+        // --- UPDATE UI METER MESH ---
+        if (uiMeter != null)
+        {
+            uiMeter.UpdateMeter(
+                currentTotalMeter,
+                maxSolidMeter,
+                maxLiquidMeter,
+                maxGasMeter,
+                PlasmaMeter,
+                maxPlasmaMeter,
+                currentState == "p"
+            );
+        }
         Debug.Log(currentTotalMeter + "My State is: " + currentState);
     }
 
