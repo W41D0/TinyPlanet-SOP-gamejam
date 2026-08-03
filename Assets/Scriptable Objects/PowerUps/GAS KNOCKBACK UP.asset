@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GAS KNOCKBACK UP
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
   powerupName: KNOCKBACK UP
-  icon: {fileID: -7415955986125602904, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  icon: {fileID: 5610456433865955097, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases the knockback of gasses by {0}
   maxLevel: 20

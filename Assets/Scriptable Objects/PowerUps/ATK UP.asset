@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ATK UP
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
   powerupName: ATACK UP
-  icon: {fileID: 3929718611160277314, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  icon: {fileID: 2364552672744995599, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases damage by {0}
   maxLevel: 0

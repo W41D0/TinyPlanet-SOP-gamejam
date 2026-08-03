@@ -548,6 +548,7 @@ MonoBehaviour:
   PlasmaMeter: 0
   meterDepletionRate: 1
   timeBeforeCooldown: 1
+  uiMeter: {fileID: 0}
 --- !u!61 &5757305198184289112
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -810,6 +811,74 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &6230339337471034871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849130149113281677}
+  - component: {fileID: 5406649696079398635}
+  m_Layer: 0
+  m_Name: Player Sight
+  m_TagString: PlayerSight
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &849130149113281677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230339337471034871}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8485424838883465266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5406649696079398635
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230339337471034871}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 10
 --- !u!1 &7095739417626012044
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +894,7 @@ GameObject:
   - component: {fileID: 2604236536112403908}
   - component: {fileID: 6267177161686452899}
   - component: {fileID: 5617467212926549122}
+  - component: {fileID: 1731194132855230499}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -848,6 +918,7 @@ Transform:
   - {fileID: 1403435668289787795}
   - {fileID: 2430292331804621560}
   - {fileID: 4127876232910561971}
+  - {fileID: 849130149113281677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4806939980390540834
@@ -960,6 +1031,7 @@ MonoBehaviour:
   invincibilityDuration: 1.5
   flashCount: 6
   spriteRenderer: {fileID: 4806939980390540834}
+  ThornsDamage: 0
   damagePopupPrefab: {fileID: 1194407985052238174, guid: 29fa2f9ee8daaf742ae6712bbba25e46, type: 3}
 --- !u!114 &4913303555505255026
 MonoBehaviour:
@@ -1030,6 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730d484a752c58a499c4e5b8e9042c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  SpeedMultiplier: 1
   baseMoveSpeed: 5
   SprintMultiplier: 1.5
 --- !u!61 &5617467212926549122
@@ -1078,6 +1151,45 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.75, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1731194132855230499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7095739417626012044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01b4aa5041c9b44e9ca5085402b0277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  healthMultiplier: 1
+  thornsDamage: 0
+  movementSpeedMultiplier: 1
+  solidDamageMult: 1
+  solidKnockbackMult: 1
+  solidFireRateMult: 1
+  solidSpreadMult: 1
+  solidMatterTimeMult: 1
+  solidRangeMult: 1
+  liquidDamageMult: 1
+  liquidKnockbackMult: 1
+  liquidFireRateMult: 1
+  liquidSpreadMult: 1
+  liquidMatterTimeMult: 1
+  liquidRangeMult: 1
+  gasDamageMult: 1
+  gasKnockbackMult: 1
+  gasFireRateMult: 1
+  gasSpreadMult: 1
+  gasMatterTimeMult: 1
+  gasRangeMult: 1
+  plasmaDamageMult: 3
+  plasmaKnockbackMult: 3
+  plasmaFireRateMult: 3
+  plasmaSpreadMult: 3
+  plasmaMatterTimeMult: 3
+  plasmaRangeMult: 3
 --- !u!1 &8518911724554618594
 GameObject:
   m_ObjectHideFlags: 0

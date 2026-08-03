@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: THORNS
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
   powerupName: THORNS
-  icon: {fileID: 21300000, guid: c0a6d17484a0fd94f9b54ed36cb04daa, type: 3}
+  icon: {fileID: -5167807243808128219, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Enemies take {0} damage after hitting the player.
   maxLevel: 0
@@ -21,5 +21,5 @@ MonoBehaviour:
   multiplierPerLevel: 3
   baseCost: 10
   costMultiplierPerLevel: 1.5
-  statToModify: 7
+  statToModify: 8
   matterToModify: 4
