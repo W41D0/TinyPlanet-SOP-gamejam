@@ -5,10 +5,11 @@ public enum StatModifierType
     MaxHealth,
     Defense,
     Damage,
+    Speed,
+    Range,
     Knockback,
     FireRate,
     Spread,
-    BulletCount,
     Thorns,
     MatterTime
 }
@@ -33,7 +34,7 @@ public class PowerUpSO : ScriptableObject
     [TextArea] public string descriptionTemplate;
 
     [Header("Infinite Progression")]
-    [Tooltip("The value given at Level 1")]
+    public int maxLevel = 0; // 0 means it can scale infinitely
     public float baseValue;
     
     public float multiplierPerLevel;
@@ -49,8 +50,13 @@ public class PowerUpSO : ScriptableObject
     public float GetValueAtLevel(int level)
     {
         if (level <= 0) return 0;
+
+            if (statToModify == StatModifierType.Thorns)
+        {
+            return baseValue * Mathf.Pow(multiplierPerLevel, level - 1);
+        }
         
-        return baseValue * Mathf.Pow(multiplierPerLevel, level - 1);
+        return (baseValue - 1f) * Mathf.Pow(multiplierPerLevel, level - 1);
     }
 
     public int GetCostAtLevel(int level)

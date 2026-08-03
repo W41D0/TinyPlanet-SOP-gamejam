@@ -1883,7 +1883,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8485424838883465266, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 12344847}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7095739417626012044, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1938978126}
   m_SourcePrefab: {fileID: 100100000, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
 --- !u!4 &1203115663 stripped
 Transform:
@@ -2763,6 +2766,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934824812}
   m_CullTransparentMesh: 1
+--- !u!1 &1938978119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7095739417626012044, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+  m_PrefabInstance: {fileID: 1203115662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938978126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938978119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e01b4aa5041c9b44e9ca5085402b0277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  healthMultiplier: 1
+  thornsDamage: 0
+  movementSpeedMultiplier: 1
+  solidDamageMult: 1
+  solidKnockbackMult: 1
+  solidFireRateMult: 1
+  solidSpreadMult: 1
+  solidMatterTimeMult: 1
+  solidRangeMult: 1
+  liquidDamageMult: 1
+  liquidKnockbackMult: 1
+  liquidFireRateMult: 1
+  liquidSpreadMult: 1
+  liquidMatterTimeMult: 1
+  liquidRangeMult: 1
+  gasDamageMult: 1
+  gasKnockbackMult: 1
+  gasFireRateMult: 1
+  gasSpreadMult: 1
+  gasMatterTimeMult: 1
+  gasRangeMult: 1
+  plasmaDamageMult: 3
+  plasmaKnockbackMult: 3
+  plasmaFireRateMult: 3
+  plasmaSpreadMult: 3
+  plasmaMatterTimeMult: 3
+  plasmaRangeMult: 3
 --- !u!1 &1962982624
 GameObject:
   m_ObjectHideFlags: 0

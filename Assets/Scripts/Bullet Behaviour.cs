@@ -92,4 +92,13 @@ public class BulletBehaviour : MonoBehaviour
         yield return new WaitForSeconds(maxLifeTime);
         Destroy(gameObject);
     }
+
+    public void InitializeBullet(float damageMultiplier, float knockbackMultiplier, float rangeMultiplier)
+    {
+        damage *= damageMultiplier;
+        knockbackForce *= knockbackMultiplier;
+        
+        maxLifeTime *= rangeMultiplier;
+        maxRange *= rangeMultiplier;
+    }
 }

@@ -16,8 +16,9 @@ MonoBehaviour:
   icon: {fileID: 3929718611160277314, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases damage by {0}
-  baseValue: 2
-  multiplierPerLevel: 1.5
+  maxLevel: 0
+  baseValue: 1.2
+  multiplierPerLevel: 1
   baseCost: 10
   costMultiplierPerLevel: 1.5
   statToModify: 2

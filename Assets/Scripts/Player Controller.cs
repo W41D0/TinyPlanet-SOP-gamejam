@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 moveDirection;
+    [HideInInspector] public float SpeedMultiplier = 1f;
     [SerializeField] float baseMoveSpeed = 5f;
     [SerializeField] float SprintMultiplier = 1.5f;
     float walkSpeed;
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = moveDirection * walkSpeed;
+        rb.linearVelocity = moveDirection * walkSpeed * SpeedMultiplier;
     }
 
     void OnMove(InputValue value)
