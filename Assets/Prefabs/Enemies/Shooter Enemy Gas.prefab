@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6576659, g: 0.8050314, b: 0.4379573, a: 1}
+  m_Color: {r: 0.76652575, g: 0.8553459, b: 0.63209516, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttacks
   dealsContactDamage: 0
-  isProjectile: 1
+  isProjectile: 0
   damage: 3
   playerKnockbackForce: 10
   ignoresIframes: 0

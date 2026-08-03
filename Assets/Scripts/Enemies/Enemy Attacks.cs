@@ -24,8 +24,11 @@ public class EnemyAttacks : MonoBehaviour
     void Start()
     {
 
-        damage = damage * EnemyDifficultyManager.Instance.damageMultiplier;
-        playerKnockbackForce = playerKnockbackForce * EnemyDifficultyManager.Instance.knockbackMultiplier;    
+        if (!isProjectile) // Only scale base enemy bodies, not the bullets they spawn!
+        {
+            damage = damage * EnemyDifficultyManager.Instance.damageMultiplier;
+            playerKnockbackForce = playerKnockbackForce * EnemyDifficultyManager.Instance.knockbackMultiplier;    
+        }
     }
 
     void Update()
@@ -54,7 +57,9 @@ public class EnemyAttacks : MonoBehaviour
         {
             TryDealDamage(collision.gameObject);
         }
-        else if (!collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("EnemyBullet"))
+        else if (!collision.gameObject.CompareTag("Enemy") && 
+                !collision.gameObject.CompareTag("EnemyBullet") &&
+                !collision.gameObject.CompareTag("PlayerSight"))
         {
             Destroy(gameObject);
         }

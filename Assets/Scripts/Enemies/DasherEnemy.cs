@@ -7,6 +7,7 @@ public class DasherEnemy : MonoBehaviour
     [SerializeField] private float normalSpeed = 3f;
     
     [Header("Dash Settings")]
+    [SerializeField] private float initialSpawnDelay = 0.5f; // THIS MUST APPEAR IN THE INSPECTOR!
     [SerializeField] private float dashPrepTime = 0.5f;
     [SerializeField] private float dashSpeed = 15f;
     [SerializeField] private float dashDuration = 0.3f; 
@@ -50,14 +51,22 @@ public class DasherEnemy : MonoBehaviour
         }
         
         currentState = State.Chasing;
-        stateTimer = dashCooldown;
+        stateTimer = initialSpawnDelay; // Uses the fast spawn delay first!
     }
 
     void Update()
     {
         if (playerTarget == null) return;
         
-        if (healthScript.IsKnockedBack) return; 
+        // Let the Dasher timer tick down even while being knocked back!
+        if (healthScript.IsKnockedBack) 
+        {
+            if (currentState == State.Chasing && stateTimer > 0f)
+            {
+                stateTimer -= Time.deltaTime;
+            }
+            return; 
+        } 
 
         switch (currentState)
         {
@@ -66,6 +75,10 @@ public class DasherEnemy : MonoBehaviour
                 rb.linearVelocity = directionToPlayer * normalSpeed;
                 
                 stateTimer -= Time.deltaTime;
+                
+                // Debug log added back in so you can watch it tick down from 0.5 to 0!
+                Debug.Log("Dasher State: " + currentState + " | Timer: " + stateTimer);
+
                 if (stateTimer <= 0f)
                 {
                     currentState = State.Preparing;
@@ -103,7 +116,7 @@ public class DasherEnemy : MonoBehaviour
                 if (stateTimer <= 0f)
                 {
                     currentState = State.Chasing;
-                    stateTimer = dashCooldown;
+                    stateTimer = dashCooldown; 
                 }
                 break;
         }

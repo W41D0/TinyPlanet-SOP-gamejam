@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6576659, g: 0.8050314, b: 0.4379573, a: 1}
+  m_Color: {r: 0.76652575, g: 0.8553459, b: 0.63209516, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -286,12 +286,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DasherEnemy
   normalSpeed: 2
+  initialSpawnDelay: 0.5
   dashPrepTime: 0.5
   dashSpeed: 15
   dashDuration: 0.3
   dashRecoveryTime: 1
   dashCooldown: 3
-  normalColor: {r: 0.2627451, g: 0.9725491, b: 0.4039216, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   prepColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1102402424387548538
 MonoBehaviour:
@@ -662,7 +663,7 @@ RectTransform:
   m_Father: {fileID: 1171925833688758125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
