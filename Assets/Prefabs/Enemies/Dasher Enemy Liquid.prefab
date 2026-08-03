@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4640452966109376199}
   - component: {fileID: 2698747266529279800}
   - component: {fileID: 7356574964386674088}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dasher Enemy Liquid
   m_TagString: Enemy
   m_Icon: {fileID: 0}

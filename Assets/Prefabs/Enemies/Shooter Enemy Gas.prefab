@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 3541700190476748255}
   - component: {fileID: 6404497154103505738}
   - component: {fileID: 6481165134641592263}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shooter Enemy Gas
   m_TagString: Enemy
   m_Icon: {fileID: 0}

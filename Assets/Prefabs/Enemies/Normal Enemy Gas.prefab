@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 8109794337587386259}
   - component: {fileID: 8114041257183921188}
   - component: {fileID: 9124054174161239474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Normal Enemy Gas
   m_TagString: Enemy
   m_Icon: {fileID: 0}

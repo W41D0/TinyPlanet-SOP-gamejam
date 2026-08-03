@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 4176498771311895845}
   - component: {fileID: 3092601902697685524}
   - component: {fileID: 3060730031782113900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shooter Enemy Liquid
   m_TagString: Enemy
   m_Icon: {fileID: 0}

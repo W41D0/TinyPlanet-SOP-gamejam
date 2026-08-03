@@ -310,10 +310,10 @@ MonoBehaviour:
   dealsContactDamage: 1
   isProjectile: 0
   damage: 2
-  playerKnockbackForce: 10
+  playerKnockbackForce: 5
   ignoresIframes: 1
   damageCooldown: 0.5
-  selfKnockbackForce: 5
+  selfKnockbackForce: 20
   selfDamageOnHit: 0
   playerHitPopupPrefab: {fileID: 2877935934635860004, guid: 9e1bf5db43d245043aac66ada4a21b3b, type: 3}
 --- !u!1 &5327811954605670581

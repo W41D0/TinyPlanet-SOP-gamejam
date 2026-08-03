@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 7349543850272906551}
   - component: {fileID: 5024328484823304588}
   - component: {fileID: 7636518579761598485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Dasher Enemy Soild
   m_TagString: Enemy
   m_Icon: {fileID: 0}
