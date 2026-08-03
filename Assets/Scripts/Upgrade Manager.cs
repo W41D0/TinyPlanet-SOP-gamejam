@@ -42,4 +42,25 @@ public class UpgradeManager : MonoBehaviour
             upgradeCards[i].SetupCard(chosenPowerup, nextLevel);
         }
     }
+
+    public void SelectUpgrade(PowerUpSO chosenPowerup)
+    {
+        if (playerInventory.ContainsKey(chosenPowerup))
+        {
+            playerInventory[chosenPowerup]++;
+        }
+        else
+        {
+            playerInventory.Add(chosenPowerup, 1);
+        }
+
+        int newLevel = playerInventory[chosenPowerup];
+        Debug.Log("Acquired: " + chosenPowerup.powerupName + " | Now Level: " + newLevel);
+
+        // ---> DO YOUR PLAYER BUFF LOGIC HERE <---
+        // e.g., FindObjectOfType<PlayerStats>().ApplyPowerup(chosenPowerup, newLevel);
+
+        upgradeUIPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
   powerupName: HEALTH UP
   icon: {fileID: 2364552672744995599, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
-  statusEffectIcon: {fileID: 0}
+  statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: INCREASES HEALTH BY {0}.
   baseValue: 10
   multiplierPerLevel: 1.1

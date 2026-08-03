@@ -13,6 +13,18 @@ public class PowerupCardUI : MonoBehaviour
 
     [HideInInspector] public PowerUpSO currentPowerup;
 
+    private UpgradeManager manager;
+
+    private void Start()
+    {
+        manager = Object.FindAnyObjectByType<UpgradeManager>();
+    }
+
+    public void OnCardClicked()
+    {
+        manager.SelectUpgrade(currentPowerup);
+    }
+
     public void SetupCard(PowerUpSO powerupData, int nextLevel)
     {
         currentPowerup = powerupData;
@@ -24,7 +36,7 @@ public class PowerupCardUI : MonoBehaviour
 
         float rawValue = powerupData.GetValueAtLevel(nextLevel);
         
-        float displayValue = (rawValue - 1f); 
+        string displayValue = rawValue.ToString("0.##"); 
         
         descriptionText.text = string.Format(powerupData.descriptionTemplate, displayValue);
     }
