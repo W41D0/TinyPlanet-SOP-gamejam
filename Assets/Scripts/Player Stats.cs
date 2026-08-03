@@ -65,10 +65,7 @@ public class PlayerStats : MonoBehaviour
         solidKnockbackMult = 1f; liquidKnockbackMult = 1f; gasKnockbackMult = 1f;
         solidFireRateMult = 1f; liquidFireRateMult = 1f; gasFireRateMult = 1f;
         solidSpreadMult = 1f; liquidSpreadMult = 1f; gasSpreadMult = 1f;
-        solidMatterTimeMult = 1f; liquidMatterTimeMult = 1f; gasMatterTimeMult = 1f; plasmaMatterTimeMult = 1f;
-
-        plasmaDamageMult = 1f; plasmaKnockbackMult = 1f; plasmaFireRateMult = 1f; 
-        plasmaSpreadMult = 1f; plasmaMatterTimeMult = 1f; plasmaRangeMult = 1f;
+        solidMatterTimeMult = 1f; liquidMatterTimeMult = 1f; gasMatterTimeMult = 1f;
         
         solidRangeMult = 1f; liquidRangeMult = 1f; gasRangeMult = 1f; // WIPED CLEAN
 

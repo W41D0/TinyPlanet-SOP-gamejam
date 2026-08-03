@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletBehaviour
   typeOfBullet: 3
-  maxLifeTime: 1
+  maxLifeTime: 3
   maxRange: 15
   damage: 2
   bonusDamageMultiplier: 2
