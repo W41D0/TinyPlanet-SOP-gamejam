@@ -23,6 +23,7 @@ public class EnemyAttacks : MonoBehaviour
 
     void Start()
     {
+
         damage = damage * EnemyDifficultyManager.Instance.damageMultiplier;
         playerKnockbackForce = playerKnockbackForce * EnemyDifficultyManager.Instance.knockbackMultiplier;    
     }
@@ -91,6 +92,10 @@ public class EnemyAttacks : MonoBehaviour
             EnemyHealth myHealth = GetComponent<EnemyHealth>();
             if (myHealth != null)
             {
+                PlayerHealth PH = target.GetComponent<PlayerHealth>();
+                if(PH != null)
+                    selfDamageOnHit = PH.ThornsDamage;
+                    
                 if (selfKnockbackForce > 0f)
                 {
                     Vector2 pushDirection = (transform.position - target.transform.position).normalized;

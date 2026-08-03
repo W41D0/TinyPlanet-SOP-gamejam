@@ -11,8 +11,7 @@ public class WaveManager : MonoBehaviour
     private bool isRoundActive = false;
 
     [Header("Spawn Settings")]
-    public GameObject enemyPrefab;
-
+    public GameObject[] enemyPrefabs;
     private SpawnPoint[] spawnPoints;
     
     [Tooltip("Seconds between spawns at Round 1")]
@@ -102,10 +101,9 @@ public class WaveManager : MonoBehaviour
 
         SpawnPoint chosenSpawner = validSpawners[Random.Range(0, validSpawners.Count)];
         
-        GameObject newEnemy = Instantiate(enemyPrefab, chosenSpawner.transform.position, Quaternion.identity);
+        GameObject chosenEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
         
-        // -> PASS STATS TO ENEMY SCRIPT HERE <-
-        // Example: newEnemy.GetComponent<EnemyScript>().ApplyStats(currentEnemyHealth, currentEnemyDamage);
+        Instantiate(chosenEnemyPrefab, chosenSpawner.transform.position, Quaternion.identity);
     }
 
     private void UpdateEnemyStats(int round)

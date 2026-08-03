@@ -14,7 +14,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Awake() 
     {
-        RollRandomUpgrades();    
+        //RollRandomUpgrades();    
     }
 
     public void RollRandomUpgrades()
@@ -62,5 +62,7 @@ public class UpgradeManager : MonoBehaviour
 
         upgradeUIPanel.SetActive(false);
         Time.timeScale = 1f;
+
+        FindAnyObjectByType<WaveManager>().StartRound();
     }
 }
