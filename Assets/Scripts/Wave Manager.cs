@@ -118,7 +118,7 @@ public class WaveManager : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(roundTimer / 60F);
             int seconds = Mathf.FloorToInt(roundTimer - minutes * 60);
-            clockText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            clockText.text = string.Format("NEXT ROUND: {0:00}:{1:00}", minutes, seconds);
         }
     }
 }

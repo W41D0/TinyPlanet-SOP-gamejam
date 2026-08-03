@@ -36,12 +36,12 @@ public class PlayerStats : MonoBehaviour
     // --------------------------------------------------------
     // PLASMA BLITZ MULTIPLIERS
     // --------------------------------------------------------
-    [HideInInspector] public float plasmaDamageMult = 3f;
-    [HideInInspector] public float plasmaKnockbackMult = 3f;
-    [HideInInspector] public float plasmaFireRateMult = 3f;
-    [HideInInspector] public float plasmaSpreadMult = 3f;
-    [HideInInspector] public float plasmaMatterTimeMult = 3f;
-    [HideInInspector] public float plasmaRangeMult = 3f; // Replaced Bullets with Range!
+    [HideInInspector] public float plasmaDamageMult = 1f;
+    [HideInInspector] public float plasmaKnockbackMult = 1f;
+    [HideInInspector] public float plasmaFireRateMult = 1f;
+    [HideInInspector] public float plasmaSpreadMult = 1f;
+    [HideInInspector] public float plasmaMatterTimeMult = 1f;
+    [HideInInspector] public float plasmaRangeMult = 1f; // Replaced Bullets with Range!
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -129,12 +129,13 @@ public class PlayerStats : MonoBehaviour
         }
 
         // 3. APPLY PLASMA MERGE LOGIC
-        plasmaDamageMult = solidDamageMult + liquidDamageMult + gasDamageMult;
-        plasmaKnockbackMult = solidKnockbackMult + liquidKnockbackMult + gasKnockbackMult;
-        plasmaFireRateMult = solidFireRateMult + liquidFireRateMult + gasFireRateMult;
-        plasmaSpreadMult = solidSpreadMult + liquidSpreadMult + gasSpreadMult;
-        plasmaMatterTimeMult = solidMatterTimeMult + liquidMatterTimeMult + gasMatterTimeMult;
-        plasmaRangeMult = solidRangeMult + liquidRangeMult + gasRangeMult; // PLASMA RANGE MERGE
+        // Only damage inherits a bonus from the other 3 states. Fire rate (which also
+        // drives plasma bullet speed in GunScript), range, spread, and knockback stay
+        // on their own default values below and are NOT merged from solid/liquid/gas.
+        plasmaDamageMult = solidDamageMult + liquidDamageMult + gasDamageMult * 0.5f;
+        //plasmaKnockbackMult = solidKnockbackMult + liquidKnockbackMult + gasKnockbackMult * 0.5f;
+        //plasmaFireRateMult = solidFireRateMult + liquidFireRateMult + gasFireRateMult * 0.5f;
+        //plasmaRangeMult = solidRangeMult + liquidRangeMult + gasRangeMult * 0.5f;
 
         // 4. PUSH FLAT UPDATES
         playerHealth.ThornsDamage = thornsDamage;

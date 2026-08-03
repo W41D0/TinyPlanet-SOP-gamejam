@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Assemblies;
 using System.ComponentModel.Design.Serialization;
+using UnityEngine.UIElements;
 
 public class GunScript : MonoBehaviour
 {
@@ -222,7 +223,8 @@ public class GunScript : MonoBehaviour
     public void ShootPlasma()
     {
         float finalSpeed = plasmaBulletSpeed * stats.plasmaFireRateMult;
-        Shoot(plasmaBullet, plasmaBulletSpread * stats.plasmaSpreadMult, finalSpeed, plasmaBulletRecoil, stats.plasmaDamageMult, stats.plasmaKnockbackMult, stats.plasmaRangeMult);
+        Shoot(plasmaBullet, plasmaBulletSpread, finalSpeed, plasmaBulletRecoil, stats.plasmaDamageMult, stats.plasmaKnockbackMult, stats.plasmaRangeMult);
+        Debug.Log("Spread is :" + plasmaBulletSpread);
     }
 
     IEnumerator ShootMethod()

@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9019086639059224678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933999883644397382}
+  - component: {fileID: 1161829122919728371}
+  m_Layer: 0
+  m_Name: EnemyStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1933999883644397382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019086639059224678}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05801, y: -0.32927, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1161829122919728371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019086639059224678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5632ca029afc4488be370f52c021f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDifficultyManager
+  healthGrowthPerRound: 1.15
+  damageGrowthPerRound: 1.15
+  knockbackGrowthPerRound: 1.01
+  knockbackMaxRounds: 20
+  speedGrowthPerRound: 1.015
+  speedMaxRounds: 20
+  stoppingDistanceGrowthPerRound: 1.03
+  retreatDistanceGrowthPerRound: 1.01
+  shootingRangeGrowthPerRound: 1.03
+  fireRateGrowthPerRound: 1.02
+  spreadGrowthPerRound: 0.95
+  shooterMaxRound: 20
+  PrepTimeGrowthPerRound: 0.975
+  dashSpeedGrowthPerRound: 1.015
+  dasherMaxRound: 20
+  explosionDamageGrowthPerRound: 1.15
+  radiusGrowthPerRound: 1.04
+  knockbackForceGrowthPerRound: 1.02
+  exploderMaxRound: 20
+  healthMultiplier: 1
+  damageMultiplier: 1
+  knockbackMultiplier: 1
+  speedMultiplier: 1
+  stoppingDistanceMultiplier: 1
+  retreatDistanceMultiplier: 1
+  shootingRangeMultiplier: 1
+  fireRateMultiplier: 1
+  spreadMultiplier: 1
+  prepTimeMultiplier: 1
+  dashSpeedMultiplier: 1
+  explosionDamageMultiplier: 1
+  radiusMultiplier: 1
+  knockbackForceMultiplier: 1
