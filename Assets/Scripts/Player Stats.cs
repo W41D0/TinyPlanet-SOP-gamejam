@@ -69,6 +69,7 @@ public class PlayerStats : MonoBehaviour
 
         plasmaDamageMult = 1f; plasmaKnockbackMult = 1f; plasmaFireRateMult = 1f; 
         plasmaSpreadMult = 1f; plasmaMatterTimeMult = 1f; plasmaRangeMult = 1f;
+
         
         solidRangeMult = 1f; liquidRangeMult = 1f; gasRangeMult = 1f; // WIPED CLEAN
 

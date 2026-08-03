@@ -47,14 +47,11 @@ MonoBehaviour:
   allAvailablePowerups:
   - {fileID: 11400000, guid: 0d83edea614f95643b0902ab0186d146, type: 2}
   - {fileID: 11400000, guid: 6c41cc36cbd3e6348b268d4034ed7328, type: 2}
-  - {fileID: 11400000, guid: 1d222a443db0c1649b30bea7a69a4e44, type: 2}
   - {fileID: 11400000, guid: 9c669bda8b5ac0546a1c18cb4bbe45a6, type: 2}
   - {fileID: 11400000, guid: ddd933fd856bd5e4fac0c56d0c018a1b, type: 2}
-  - {fileID: 11400000, guid: 4b6ae0148f94cac4b8c84b81304163f9, type: 2}
   - {fileID: 11400000, guid: a06f52175f1ad0949aea5f58442cb5c2, type: 2}
   - {fileID: 11400000, guid: ba66ba2c5c1d6b542b855e58202df5a3, type: 2}
   - {fileID: 11400000, guid: 8c166fb0e998c6c4199b076d17729319, type: 2}
-  - {fileID: 11400000, guid: 908b9b50784d6784880cd6034ac20dc5, type: 2}
   - {fileID: 11400000, guid: aeb14cb1cc2f2eb44b98cfafb2f17e52, type: 2}
   upgradeCards:
   - {fileID: 0}
