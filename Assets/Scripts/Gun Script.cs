@@ -87,12 +87,12 @@ public class GunScript : MonoBehaviour
     [SerializeField] private float maxLiquidMeter = 3f;
     [SerializeField] private float maxGasMeter = 3f;
     [SerializeField] private float maxPlasmaMeter = 2f;
-
+    
     // REPLACE YOUR METER PROPERTIES WITH THESE:
     public float MaxSolid => maxSolidMeter * (stats != null ? stats.solidMatterTimeMult : 1f);
     public float MaxLiquid => maxLiquidMeter * (stats != null ? stats.liquidMatterTimeMult : 1f);
     public float MaxGas => maxGasMeter * (stats != null ? stats.gasMatterTimeMult : 1f);
-    public float MaxPlasma => maxPlasmaMeter * (stats != null ? stats.plasmaMatterTimeMult : 1f);
+    public float MaxPlasma => (1f/3f) * maxPlasmaMeter * stats.plasmaMatterTimeMult;
 
     public float SolidMeter => Mathf.Clamp(currentTotalMeter, 0, MaxSolid);
     public float LiquidMeter => Mathf.Clamp(currentTotalMeter - MaxSolid, 0, MaxLiquid);
@@ -167,8 +167,9 @@ public class GunScript : MonoBehaviour
         if(currentState == "p")
         {
             PlasmaMeter += Time.deltaTime;
-            if (PlasmaMeter > maxPlasmaMeter)
+            if (PlasmaMeter > MaxPlasma) // <-- Changed from maxPlasmaMeter to MaxPlasma
             {
+                Debug.Log(MaxPlasma + ", " + stats.plasmaMatterTimeMult);
                 PlasmaMeter = 0f;
                 currentTotalMeter = 0;
             }
@@ -186,7 +187,6 @@ public class GunScript : MonoBehaviour
                 currentState == "p"
             );
         }
-        Debug.Log(currentTotalMeter + "My State is: " + currentState);
     }
 
     private void Shoot(GameObject prefab, float spread, float speed, float recoil, float damageMult, float knockbackMult, float rangeMult)
@@ -238,7 +238,6 @@ public class GunScript : MonoBehaviour
     {
         float finalSpeed = plasmaBulletSpeed * stats.plasmaFireRateMult;
         Shoot(plasmaBullet, plasmaBulletSpread, finalSpeed, plasmaBulletRecoil, stats.plasmaDamageMult, stats.plasmaKnockbackMult, stats.plasmaRangeMult);
-        Debug.Log("Spread is :" + plasmaBulletSpread);
     }
 
     IEnumerator ShootMethod()
@@ -268,15 +267,16 @@ public class GunScript : MonoBehaviour
 
     public void updateState()
     {
-        if (currentTotalMeter < maxSolidMeter)
+        // Swapped out raw variables for the upgraded Capitalized properties!
+        if (currentTotalMeter < MaxSolid)
         {
             currentState = "s";
         }
-        else if (currentTotalMeter < maxSolidMeter + maxLiquidMeter)
+        else if (currentTotalMeter < MaxSolid + MaxLiquid)
         {
             currentState = "l";
         }
-        else if (currentTotalMeter < maxSolidMeter + maxLiquidMeter + maxGasMeter)
+        else if (currentTotalMeter < MaxSolid + MaxLiquid + MaxGas)
         {
             currentState = "g";
         }
@@ -285,7 +285,7 @@ public class GunScript : MonoBehaviour
             currentState = "p"; 
         }
     }
-
+    
     void decreaseMeter()
     {
         if (timeSinceLastShot > timeBeforeCooldown && currentTotalMeter > 0)
