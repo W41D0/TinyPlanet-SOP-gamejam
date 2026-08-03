@@ -265,12 +265,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
+      propertyPath: baseSpawnRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
       propertyPath: roundDuration
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
       propertyPath: enemyPrefabs.Array.size
-      value: 14
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'

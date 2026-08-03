@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -25,7 +26,11 @@ public class PlayerHealth : MonoBehaviour
     [Header("Visual Effects")]
     [Tooltip("Fallback popup prefab used if the attacker doesn't specify one.")]
     [SerializeField] private GameObject damagePopupPrefab;
-
+    [Header("Death Effects")]
+    [SerializeField] private GameObject deathExplosionPrefab;
+    [SerializeField] private string gameOverSceneName = "Game Over";
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private Collider2D playerCollider;
     private float currentHealth;
     bool isDead = false;
     
@@ -54,8 +59,28 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0f)
         {
             if(!isDead)
-            {
+            {   
                 isDead = true;
+                if (deathExplosionPrefab != null)
+                {
+                    GameObject deathEffect = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
+                    ParticleSystem deathParticles = deathEffect.GetComponent<ParticleSystem>();
+                    if (deathParticles == null)
+                    {
+                        deathParticles = deathEffect.GetComponentInChildren<ParticleSystem>();
+                    }
+
+                    if (deathParticles != null)
+                    {
+                        deathParticles.Play(true);
+                    }
+                }
+
+                if (playerSprite != null) playerSprite.enabled = false;
+                if (playerCollider != null) playerCollider.enabled = false;
+                if (movementScript != null) movementScript.enabled = false;
+
+                StartCoroutine(LoadGameOverSceneRoutine());
                 print("you lose");
             }
         }
@@ -254,5 +279,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isDead && movementScript != null)
             movementScript.enabled = true;
+    }
+
+    private IEnumerator LoadGameOverSceneRoutine()
+    {
+        yield return new WaitForSeconds(deathMenuDelay);
+        SceneManager.LoadScene(gameOverSceneName);
     }
 }
