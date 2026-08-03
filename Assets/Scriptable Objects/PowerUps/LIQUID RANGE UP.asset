@@ -17,7 +17,7 @@ MonoBehaviour:
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increses Liquid range by {0}m
   maxLevel: 5
-  baseValue: 1.01
+  baseValue: 1.15
   multiplierPerLevel: 1.1
   baseCost: 10
   costMultiplierPerLevel: 1.5
