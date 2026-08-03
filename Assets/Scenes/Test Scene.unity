@@ -376,13 +376,13 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
+      propertyPath: upgradeManager
+      value: 
+      objectReference: {fileID: 2030982638}
+    - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
       propertyPath: enemyPrefabs.Array.size
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
-      propertyPath: upgradeManager
-      value: 
-      objectReference: {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
     - target: {fileID: 3793322787724940468, guid: 4e6012699f727d8448fd3f23d045a415, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[1]'
       value: 
