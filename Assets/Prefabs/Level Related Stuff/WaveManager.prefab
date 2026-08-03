@@ -44,10 +44,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: becfdfe14ef2add4cad5f10bda70b822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  roundDuration: 10
+  roundDuration: 30
   currentRound: 1
   enemyPrefabs:
-  - {fileID: 1879100476606319908, guid: c107884d68889ad4589d9db33f9917e0, type: 3}
+  - {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
+  - {fileID: 5742358594682867959, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
+  - {fileID: 711298416609489085, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
+  - {fileID: 3041931519834277437, guid: 1572232b54b9c4442b3e9dabf8b633be, type: 3}
+  - {fileID: 5742358594682867959, guid: 925637d2fa1cd8e4ab37d1ab8574413a, type: 3}
+  - {fileID: 711298416609489085, guid: 7684d48fe23074449b1d832ef2da290a, type: 3}
+  - {fileID: 3041931519834277437, guid: 1572232b54b9c4442b3e9dabf8b633be, type: 3}
+  - {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
+  - {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
+  - {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
+  - {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
   baseSpawnRate: 3
   maxSpawnRate: 0.5
   roundToMaxSpawnRate: 10
