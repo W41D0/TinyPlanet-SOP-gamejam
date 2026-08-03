@@ -178,11 +178,11 @@ public class GunScript : MonoBehaviour
         {
             uiMeter.UpdateMeter(
                 currentTotalMeter,
-                MaxSolid,       
-                MaxLiquid,      
-                MaxGas,         
+                maxSolidMeter,       
+                maxLiquidMeter,      
+                maxLiquidMeter,         
                 PlasmaMeter,
-                MaxPlasma,      
+                maxPlasmaMeter,      
                 currentState == "p"
             );
         }

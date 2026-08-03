@@ -442,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 3617952767985670414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 3.56, y: -0, z: 0}
+  m_LocalPosition: {x: 2.41, y: -0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -558,7 +558,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3617952767985670414}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -5932,6 +5932,7 @@ MonoBehaviour:
   ThornsDamage: 0
   damagePopupPrefab: {fileID: 1194407985052238174, guid: 29fa2f9ee8daaf742ae6712bbba25e46, type: 3}
   deathExplosionPrefab: {fileID: 1657227306374862485, guid: a4d8ab1f564c08e4f8477e23b520e86e, type: 3}
+  gameOverSceneName: Game Over
   playerSprite: {fileID: 4806939980390540834}
   playerCollider: {fileID: 5617467212926549122}
 --- !u!114 &4913303555505255026
@@ -6162,7 +6163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponAim
   playerTransform: {fileID: 8485424838883465266}
-  radius: 0.5
+  radius: 1
   springStiffness: 250
   damping: 10
   gunRotateSpeed: 12
@@ -6178,7 +6179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: f94a66edba1ba444eb9a62a48ce15f71, type: 3}
+  m_Actions: {fileID: 0}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
