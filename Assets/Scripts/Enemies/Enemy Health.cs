@@ -24,12 +24,15 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        maxHealth = maxHealth * EnemyDifficultyManager.Instance.healthMultiplier;
+        
         currentHealth = maxHealth;
+        
         rb = GetComponent<Rigidbody2D>();
         
         healthBar = GetComponentInChildren<Slider>(true);
         if (healthBar != null)
-        {
+        {            
             healthBar.maxValue = maxHealth;
             healthBar.value = currentHealth;
             healthBar.gameObject.SetActive(false);

@@ -19,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int flashCount = 6;
     [SerializeField] private SpriteRenderer spriteRenderer; 
 
+    [Header("Extra")]
+    [SerializeField] public float ThornsDamage = 0;
+
     [Header("Visual Effects")]
     [Tooltip("Fallback popup prefab used if the attacker doesn't specify one.")]
     [SerializeField] private GameObject damagePopupPrefab;

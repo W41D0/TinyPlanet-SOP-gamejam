@@ -87,14 +87,16 @@ public class GunScript : MonoBehaviour
     [SerializeField] private float maxGasMeter = 3f;
     [SerializeField] private float maxPlasmaMeter = 2f;
 
-    public float SolidMeter => Mathf.Clamp(currentTotalMeter, 0, maxSolidMeter);
+    // REPLACE YOUR METER PROPERTIES WITH THESE:
+    public float MaxSolid => maxSolidMeter * (stats != null ? stats.solidMatterTimeMult : 1f);
+    public float MaxLiquid => maxLiquidMeter * (stats != null ? stats.liquidMatterTimeMult : 1f);
+    public float MaxGas => maxGasMeter * (stats != null ? stats.gasMatterTimeMult : 1f);
+    public float MaxPlasma => maxPlasmaMeter * (stats != null ? stats.plasmaMatterTimeMult : 1f);
 
-    public float LiquidMeter => Mathf.Clamp(currentTotalMeter - maxSolidMeter, 0, maxLiquidMeter);
-
-    public float GasMeter => Mathf.Clamp(currentTotalMeter - (maxSolidMeter + maxLiquidMeter), 0, maxGasMeter);
-
-    public float MaxTotalMeter => maxSolidMeter + maxLiquidMeter + maxGasMeter;
-
+    public float SolidMeter => Mathf.Clamp(currentTotalMeter, 0, MaxSolid);
+    public float LiquidMeter => Mathf.Clamp(currentTotalMeter - MaxSolid, 0, MaxLiquid);
+    public float GasMeter => Mathf.Clamp(currentTotalMeter - (MaxSolid + MaxLiquid), 0, MaxGas);
+    public float MaxTotalMeter => MaxSolid + MaxLiquid + MaxGas;
     public float PlasmaMeter = 0f;
 
     [SerializeField] private float meterDepletionRate = 1f;
@@ -112,6 +114,7 @@ public class GunScript : MonoBehaviour
 
     string currentState = "s";
     bool inPlasmaMode = false;
+    private PlayerStats stats;
 
     PlayerController player;
     WeaponAim weaponAim;
@@ -126,6 +129,7 @@ public class GunScript : MonoBehaviour
     void Start()
     {
         player = transform.parent.parent.GetComponent<PlayerController>();
+        stats = transform.parent.parent.GetComponent<PlayerStats>();
         weaponAim = transform.parent.GetComponent<WeaponAim>();
         bulletSpawnObject = transform.Find("Bullet Spawn").GetComponent<Transform>();
         gun = gameObject;
@@ -165,18 +169,18 @@ public class GunScript : MonoBehaviour
         {
             uiMeter.UpdateMeter(
                 currentTotalMeter,
-                maxSolidMeter,
-                maxLiquidMeter,
-                maxGasMeter,
+                MaxSolid,       
+                MaxLiquid,      
+                MaxGas,         
                 PlasmaMeter,
-                maxPlasmaMeter,
+                MaxPlasma,      
                 currentState == "p"
             );
         }
         Debug.Log(currentTotalMeter + "My State is: " + currentState);
     }
 
-    private void Shoot(GameObject prefab, float spread, float speed, float recoil)
+    private void Shoot(GameObject prefab, float spread, float speed, float recoil, float damageMult, float knockbackMult, float rangeMult)
     {
         bulletSpawnPosition = bulletSpawnObject.position;
         bulletSpawnRotation = bulletSpawnObject.rotation;
@@ -187,6 +191,8 @@ public class GunScript : MonoBehaviour
 
         GameObject spawnedBullet = Instantiate(prefab, bulletSpawnPosition, bulletSpawnRotation);
 
+        spawnedBullet.GetComponent<BulletBehaviour>().InitializeBullet(damageMult, knockbackMult, rangeMult);
+
         Rigidbody2D bulletRB = spawnedBullet.GetComponent<Rigidbody2D>();
         bulletRB.linearVelocity = spawnedBullet.transform.up * speed;
         weaponAim.ApplyRecoil(recoil);
@@ -196,22 +202,27 @@ public class GunScript : MonoBehaviour
 
     public void ShootSolid()
     {
-        Shoot(solidBullet, solidBulletSpread, solidBulletSpeed, solidBulletRecoil);
+        // Velocity scales up with Fire Rate!
+        float finalSpeed = solidBulletSpeed * stats.solidFireRateMult; 
+        Shoot(solidBullet, solidBulletSpread * stats.solidSpreadMult, finalSpeed, solidBulletRecoil, stats.solidDamageMult, stats.solidKnockbackMult, stats.solidRangeMult);
     }
 
     public void ShootLiquid()
     {
-        Shoot(liquidBullet, liquidBulletSpread, liquidBulletSpeed, liquidBulletRecoil);
+        float finalSpeed = liquidBulletSpeed * stats.liquidFireRateMult;
+        Shoot(liquidBullet, liquidBulletSpread * stats.liquidSpreadMult, finalSpeed, liquidBulletRecoil, stats.liquidDamageMult, stats.liquidKnockbackMult, stats.liquidRangeMult);
     }
 
     public void ShootGas()
     {
-        Shoot(gasBullet, gasBulletSpread, gasBulletSpeed, gasBulletRecoil);
+        float finalSpeed = gasBulletSpeed * stats.gasFireRateMult;
+        Shoot(gasBullet, gasBulletSpread * stats.gasSpreadMult, finalSpeed, gasBulletRecoil, stats.gasDamageMult, stats.gasKnockbackMult, stats.gasRangeMult);
     }
 
     public void ShootPlasma()
     {
-        Shoot(plasmaBullet, plasmaBulletSpread, plasmaBulletSpeed, plasmaBulletRecoil);
+        float finalSpeed = plasmaBulletSpeed * stats.plasmaFireRateMult;
+        Shoot(plasmaBullet, plasmaBulletSpread * stats.plasmaSpreadMult, finalSpeed, plasmaBulletRecoil, stats.plasmaDamageMult, stats.plasmaKnockbackMult, stats.plasmaRangeMult);
     }
 
     IEnumerator ShootMethod()
@@ -221,22 +232,19 @@ public class GunScript : MonoBehaviour
         {
             case "s":
                 ShootSolid();
-                yield return new WaitForSeconds(timeBetweenSolidBullets);
+                yield return new WaitForSeconds(timeBetweenSolidBullets / stats.solidFireRateMult);
                 break;
-                
             case "l":
                 ShootLiquid();
-                yield return new WaitForSeconds(timeBetweenLiquidBullets);
+                yield return new WaitForSeconds(timeBetweenLiquidBullets / stats.liquidFireRateMult);
                 break;
-                
             case "g":
                 ShootGas();
-                yield return new WaitForSeconds(timeBetweenGasBullets);
+                yield return new WaitForSeconds(timeBetweenGasBullets / stats.gasFireRateMult);
                 break;
-
             case "p":
                 ShootPlasma();
-                yield return new WaitForSeconds(timeBetweenPlasmaBullets);
+                yield return new WaitForSeconds(timeBetweenPlasmaBullets / stats.plasmaFireRateMult);
                 break;
         }
         player.IsOnShootCooldown = false;

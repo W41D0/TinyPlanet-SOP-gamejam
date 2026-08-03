@@ -14,7 +14,7 @@ public class UpgradeManager : MonoBehaviour
 
     private void Awake() 
     {
-        RollRandomUpgrades();    
+        //RollRandomUpgrades();    
     }
 
     public void RollRandomUpgrades()
@@ -22,24 +22,51 @@ public class UpgradeManager : MonoBehaviour
         Time.timeScale = 0f;
         upgradeUIPanel.SetActive(true);
 
+        // 1. BUILD A FILTERED POOL
+        List<PowerUpSO> pool = new List<PowerUpSO>();
+        foreach (var powerup in allAvailablePowerups)
+        {
+            int currentLevel = 0;
+            if (playerInventory.ContainsKey(powerup))
+            {
+                currentLevel = playerInventory[powerup];
+            }
 
-        List<PowerUpSO> pool = new List<PowerUpSO>(allAvailablePowerups);
+            // ONLY add to the pool if it's infinite (0) OR we haven't hit the max level yet
+            if (powerup.maxLevel == 0 || currentLevel < powerup.maxLevel)
+            {
+                pool.Add(powerup);
+            }
+        }
 
+        // 2. ASSIGN TO UI CARDS
         for (int i = 0; i < upgradeCards.Length; i++)
         {
-            int randomIndex = Random.Range(0, pool.Count);
-            PowerUpSO chosenPowerup = pool[randomIndex];
-
-            pool.RemoveAt(randomIndex);
-
-            int currentLevel = 0;
-            if (playerInventory.ContainsKey(chosenPowerup))
+            // Safety Check: Do we still have cards left in the pool?
+            if (pool.Count > 0)
             {
-                currentLevel = playerInventory[chosenPowerup];
-            }
-            int nextLevel = currentLevel + 1;
+                // Make sure the UI card is visible
+                upgradeCards[i].gameObject.SetActive(true);
 
-            upgradeCards[i].SetupCard(chosenPowerup, nextLevel);
+                int randomIndex = Random.Range(0, pool.Count);
+                PowerUpSO chosenPowerup = pool[randomIndex];
+
+                pool.RemoveAt(randomIndex);
+
+                int currentLevel = 0;
+                if (playerInventory.ContainsKey(chosenPowerup))
+                {
+                    currentLevel = playerInventory[chosenPowerup];
+                }
+                int nextLevel = currentLevel + 1;
+
+                upgradeCards[i].SetupCard(chosenPowerup, nextLevel);
+            }
+            else
+            {
+                // The pool ran dry! Hide any leftover UI card slots so they aren't blank/broken.
+                upgradeCards[i].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -58,9 +85,11 @@ public class UpgradeManager : MonoBehaviour
         Debug.Log("Acquired: " + chosenPowerup.powerupName + " | Now Level: " + newLevel);
 
         // ---> DO YOUR PLAYER BUFF LOGIC HERE <---
-        // e.g., FindObjectOfType<PlayerStats>().ApplyPowerup(chosenPowerup, newLevel);
-
+        FindAnyObjectByType<PlayerStats>().RecalculateStats(playerInventory);
+        
         upgradeUIPanel.SetActive(false);
         Time.timeScale = 1f;
+
+        FindAnyObjectByType<WaveManager>().StartRound();
     }
 }

@@ -16,8 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fb27b53b601ab34498c2f6f17470972a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases spread of plasma by {0}
-  baseValue: 10
-  multiplierPerLevel: 1
+  maxLevel: 10
+  baseValue: 1.01
+  multiplierPerLevel: 1.05
   baseCost: 10
   costMultiplierPerLevel: 1.5
   statToModify: 2

@@ -28,6 +28,11 @@ public class ExplodingEnemy : MonoBehaviour
 
     void Start()
     {
+        speed = speed * EnemyDifficultyManager.Instance.speedMultiplier;
+        explosionDamage = explosionDamage * EnemyDifficultyManager.Instance.explosionDamageMultiplier;
+        explosionRadius = explosionRadius * EnemyDifficultyManager.Instance.radiusMultiplier;
+        playerKnockbackForce = playerKnockbackForce * EnemyDifficultyManager.Instance.knockbackForceMultiplier;
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) playerTarget = playerObj.transform;
 

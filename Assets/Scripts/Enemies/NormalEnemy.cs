@@ -14,6 +14,7 @@ public class NormalEnemy : MonoBehaviour
 
     void Start()
     {
+        speed = speed * EnemyDifficultyManager.Instance.speedMultiplier;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) playerTarget = playerObj.transform;
         

@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "TinyPlanet-SOP-gamejam.slnx"
+    "dotnet.defaultSolution": "TinyPlanet SOP gamejam.slnx"
 }

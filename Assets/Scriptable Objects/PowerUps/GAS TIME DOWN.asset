@@ -16,9 +16,10 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 6a239d76999391f42b798f1641be5733, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Deacrease time spent in gas state by {0} seconds
-  baseValue: 1
-  multiplierPerLevel: 0.9
+  maxLevel: 10
+  baseValue: 1.04
+  multiplierPerLevel: 1
   baseCost: 10
   costMultiplierPerLevel: 1.5
-  statToModify: 8
+  statToModify: 10
   matterToModify: 2
