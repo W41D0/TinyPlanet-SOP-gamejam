@@ -91,5 +91,8 @@ public class UpgradeManager : MonoBehaviour
         Time.timeScale = 1f;
 
         FindAnyObjectByType<WaveManager>().StartRound();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        playerHealth.Heal(playerHealth.getTotalHealth());
     }
 }

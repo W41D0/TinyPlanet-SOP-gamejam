@@ -137,7 +137,7 @@ MonoBehaviour:
   typeOfBullet: 0
   maxLifeTime: 3
   maxRange: 15
-  damage: 1
+  damage: 2
   bonusDamageMultiplier: 2
   knockbackForce: 2
   canPierce: 0
