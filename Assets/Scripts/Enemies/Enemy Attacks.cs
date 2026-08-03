@@ -21,6 +21,12 @@ public class EnemyAttacks : MonoBehaviour
 
     private float currentDamageCooldown = 0f;
 
+    void Start()
+    {
+        damage = damage * EnemyDifficultyManager.Instance.damageMultiplier;
+        playerKnockbackForce = playerKnockbackForce * EnemyDifficultyManager.Instance.knockbackMultiplier;    
+    }
+
     void Update()
     {
         if (ignoresIframes && currentDamageCooldown > 0f) 

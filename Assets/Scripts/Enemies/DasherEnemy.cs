@@ -30,6 +30,10 @@ public class DasherEnemy : MonoBehaviour
 
     void Start()
     {
+        normalSpeed = normalSpeed * EnemyDifficultyManager.Instance.speedMultiplier;
+        dashPrepTime = dashPrepTime * EnemyDifficultyManager.Instance.prepTimeMultiplier;
+        dashSpeed = dashSpeed * EnemyDifficultyManager.Instance.dashSpeedMultiplier;
+
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null) playerTarget = playerObj.transform;
 
