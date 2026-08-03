@@ -110,7 +110,8 @@ public class GunScript : MonoBehaviour
 //----------------------------------------------------------------------------------------------------
     [Header("UI Reference")]
     [SerializeField] private ProceduralPhaseMeter uiMeter;
-
+    [Header("VFX")]
+    [SerializeField] private ParticleSystem muzzleFlash;
     Transform bulletSpawnObject;
 
     string currentState = "s";
@@ -135,6 +136,13 @@ public class GunScript : MonoBehaviour
         bulletSpawnObject = transform.Find("Bullet Spawn").GetComponent<Transform>();
         gun = gameObject;
         gunRB = gun.GetComponent<Rigidbody2D>();
+
+        if (muzzleFlash != null)
+        {
+            var main = muzzleFlash.main;
+            main.playOnAwake = false;
+            main.loop = false;
+        }
     }
 
     // Update is called once per frame
@@ -198,6 +206,12 @@ public class GunScript : MonoBehaviour
         bulletRB.linearVelocity = spawnedBullet.transform.up * speed;
         weaponAim.ApplyRecoil(recoil);
 
+        // --- TRIGGER MUZZLE FLASH ---
+        if (muzzleFlash != null)
+        {
+            muzzleFlash.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            muzzleFlash.Play();
+        }
         timeSinceLastShot = 0f;
     }
 
