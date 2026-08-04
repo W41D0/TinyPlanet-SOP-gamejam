@@ -109,7 +109,8 @@ public class GunScript : MonoBehaviour
     float timeSinceLastShot = 0f;
 //----------------------------------------------------------------------------------------------------
     [Header("UI Reference")]
-    [SerializeField] private ProceduralPhaseMeter uiMeter;
+    //[SerializeField] private ProceduralPhaseMeter uiMeter;
+    [SerializeField] private PhaseClockMeter uiMeter;
     [Header("VFX")]
     [SerializeField] private ParticleSystem muzzleFlash;
     Transform bulletSpawnObject;
@@ -176,14 +177,14 @@ public class GunScript : MonoBehaviour
         // --- UPDATE UI METER MESH ---
         if (uiMeter != null)
         {
-            uiMeter.UpdateMeter(
+            uiMeter.UpdateClock(
                 currentTotalMeter,
                 maxSolidMeter,       
                 maxLiquidMeter,      
                 maxLiquidMeter,         
                 PlasmaMeter,
                 maxPlasmaMeter,      
-                currentState == "p"
+                currentState
             );
         }
         Debug.Log(currentTotalMeter + "My State is: " + currentState);
