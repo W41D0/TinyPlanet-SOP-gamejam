@@ -426,6 +426,7 @@ GameObject:
   - component: {fileID: 5183378521661967255}
   - component: {fileID: 6320367203518706027}
   - component: {fileID: 5757305198184289112}
+  - component: {fileID: 8202406097747598466}
   m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
@@ -597,6 +598,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.32, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &8202406097747598466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617952767985670414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8043ab2be27c34095e01738880e5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunSoundObserver
+  oneShotSource: {fileID: 0}
+  loopSource: {fileID: 0}
+  solidSound: {fileID: 8300000, guid: c4ab59f09ac05f9448fe390198086a4b, type: 3}
+  liquidSound: {fileID: 8300000, guid: 4a471917ccf34f146aaaef9c03958bb3, type: 3}
+  gasSound: {fileID: 8300000, guid: 3b149171d1c561344a8c6708199adc88, type: 3}
+  plasmaSound: {fileID: 8300000, guid: dbd2566a41f040b47bd399d1f1654001, type: 3}
+  isPlasmaContinuous: 1
 --- !u!1 &4594147981385889824
 GameObject:
   m_ObjectHideFlags: 0

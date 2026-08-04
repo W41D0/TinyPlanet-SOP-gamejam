@@ -5,6 +5,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasRenderer))]
 public class PhaseClockMeter : Graphic
 {
+    [Header("Clock Background")]
+    [Tooltip("The color of the clock face when no time has elapsed (time is 'used up'). Only applies during Plasma state.")]
+    [SerializeField] private Color depletedBackground = new Color(0.15f, 0.15f, 0.15f, 1f); // Dark Grey
+
     [Header("Phase Colors")]
     [SerializeField] private Color solidColor = new Color(0.6f, 0.3f, 0.2f, 1f); // Earthy red/brown
     [SerializeField] private Color liquidColor = new Color(0.2f, 0.3f, 0.5f, 1f); // Deep blue
@@ -29,6 +33,9 @@ public class PhaseClockMeter : Graphic
     private float maxSolid, maxLiquid, maxGas, currentPlasma, maxPlasma;
     private string currentState;
 
+    // The current logical fill angle (0 to 360) corresponding to progress
+    private float currentFillAngle;
+
     /// <summary>
     /// Updates the clock dynamically based on current phase and values.
     /// </summary>
@@ -42,13 +49,13 @@ public class PhaseClockMeter : Graphic
         this.maxPlasma = maxPlasma;
         this.currentState = currentState;
 
-        UpdateNeedleAndText();
+        UpdateNeedleAndTextAndCalculateFill();
         
         // Trigger the procedural mesh to redraw the clock face
         SetVerticesDirty(); 
     }
 
-    private void UpdateNeedleAndText()
+    private void UpdateNeedleAndTextAndCalculateFill()
     {
         float totalStandardMax = maxSolid + maxLiquid + maxGas;
         float needleAngle = 0f;
@@ -56,14 +63,21 @@ public class PhaseClockMeter : Graphic
 
         if (currentState == "p") // Plasma State
         {
+            // The GunScript depletes PlasmaMeter over maxPlasma duration.
+            float plasmaPercentRemaining = Mathf.Clamp01((maxPlasma - currentPlasma) / maxPlasma);
+
             // Hand moves backwards from 360 down to 0
-            float plasmaPercent = Mathf.Clamp01(currentPlasma / maxPlasma);
-            needleAngle = Mathf.Lerp(360f, 0f, plasmaPercent);
+            needleAngle = Mathf.Lerp(360f, 0f, 1f - plasmaPercentRemaining); 
             
             timeLeft = maxPlasma - currentPlasma;
+            
+            // The visual fill for Plasma is tied to the needle
+            currentFillAngle = needleAngle; 
         }
-        else // Normal States
+        else // Normal States (S, L, G or cooldown)
         {
+            if (totalStandardMax <= 0) return; 
+
             // Hand moves forward from 0 to 360
             float totalPercent = Mathf.Clamp01(currentTotal / totalStandardMax);
             needleAngle = Mathf.Lerp(0f, 360f, totalPercent);
@@ -81,6 +95,9 @@ public class PhaseClockMeter : Graphic
             {
                 timeLeft = totalStandardMax - currentTotal;
             }
+
+            // We track this for the needle, but we won't restrict the mesh generation below
+            currentFillAngle = needleAngle;
         }
 
         // Apply Needle Rotation (Negative Z rotates clockwise in Unity UI)
@@ -104,14 +121,30 @@ public class PhaseClockMeter : Graphic
         float radius = Mathf.Min(r.width, r.height) / 2f;
         Vector2 center = r.center;
 
-        float totalStandardMax = maxSolid + maxLiquid + maxGas;
-        
-        // Prevent division by zero errors on the first frame if max values are 0
-        if (totalStandardMax <= 0) return; 
+        if (currentState == "p")
+        {
+            // PLASMA MODE: Draw the grey background, then draw Plasma color up to the needle
+            DrawPieSlicePass(vh, center, radius, 360f, true);
+            DrawPieSlicePass(vh, center, radius, currentFillAngle, false);
+        }
+        else
+        {
+            // NORMAL MODE: Always draw the full 360 degree painted pie chart (no greying out)
+            DrawPieSlicePass(vh, center, radius, 360f, false);
+        }
+    }
 
-        // Calculate thresholds in degrees (0 to 360) for the pie slices
-        float solidEndAngle = (maxSolid / totalStandardMax) * 360f;
-        float liquidEndAngle = solidEndAngle + ((maxLiquid / totalStandardMax) * 360f);
+    private void DrawPieSlicePass(VertexHelper vh, Vector2 center, float radius, float totalDrawAngleDeg, bool isBackgroundLayer)
+    {
+        float totalStandardMax = maxSolid + maxLiquid + maxGas;
+        float solidEndAngle = 0;
+        float liquidEndAngle = 0;
+
+        if (totalStandardMax > 0)
+        {
+            solidEndAngle = (maxSolid / totalStandardMax) * 360f;
+            liquidEndAngle = solidEndAngle + ((maxLiquid / totalStandardMax) * 360f);
+        }
 
         float angleStep = 360f / circleResolution;
 
@@ -120,22 +153,35 @@ public class PhaseClockMeter : Graphic
             float startAngleDeg = i * angleStep;
             float endAngleDeg = (i + 1) * angleStep;
 
+            // Don't draw vertices past the fill amount for this layer
+            if (startAngleDeg > totalDrawAngleDeg) break;
+
             Color segmentColor;
 
-            // If in plasma, override the whole clock face
-            if (currentState == "p")
+            // Determine what color to paint this specific triangle
+            if (isBackgroundLayer)
             {
-                segmentColor = plasmaColor;
+                segmentColor = depletedBackground;
             }
             else
             {
-                // Determine slice color based on where this triangle starts
-                if (startAngleDeg < solidEndAngle) segmentColor = solidColor;
-                else if (startAngleDeg < liquidEndAngle) segmentColor = liquidColor;
-                else segmentColor = gasColor;
+                if (currentState == "p") 
+                {
+                    segmentColor = plasmaColor;
+                }
+                else 
+                {
+                    // Draw standard proportional states
+                    if (startAngleDeg < solidEndAngle) segmentColor = solidColor;
+                    else if (startAngleDeg < liquidEndAngle) segmentColor = liquidColor;
+                    else segmentColor = gasColor;
+                }
             }
 
-            DrawPieTriangle(vh, center, radius, startAngleDeg, endAngleDeg, segmentColor);
+            // Correct for a very small mismatch at the final vertex to keep the line sharp with the needle
+            float drawAngleForTriangle = Mathf.Min(endAngleDeg, totalDrawAngleDeg);
+
+            DrawPieTriangle(vh, center, radius, startAngleDeg, drawAngleForTriangle, segmentColor);
         }
     }
 

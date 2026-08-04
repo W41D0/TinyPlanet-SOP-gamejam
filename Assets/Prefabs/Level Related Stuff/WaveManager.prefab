@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620396214082362871}
   - component: {fileID: 3793322787724940468}
+  - component: {fileID: 2877076949365791221}
   m_Layer: 0
   m_Name: WaveManager
   m_TagString: Untagged
@@ -68,3 +69,15 @@ MonoBehaviour:
   clockText: {fileID: 0}
   waveText: {fileID: 0}
   upgradeManager: {fileID: 0}
+--- !u!114 &2877076949365791221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527495091451994595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c587a9c7d7a9a314fb74f3cb7f1a6320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HighScoreObserver
