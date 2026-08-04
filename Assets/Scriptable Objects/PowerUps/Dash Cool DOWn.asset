@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63239277094cc484eb25b5712e7bdd96, type: 3}
-  m_Name: LIQUID RANGE UP
+  m_Name: Dash Cool DOWn
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
-  powerupName: RANGE UP
-  icon: {fileID: -657809462729225012, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
-  statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
-  descriptionTemplate: Increases Liquid range by {0}m
-  maxLevel: 100
-  baseValue: 1.25
+  powerupName: DASH COOL DOWN
+  icon: {fileID: -7415955986125602904, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  statusEffectIcon: {fileID: -1145144668836272637, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  descriptionTemplate: 'Deacrease the dash cool dawn by{0}. '
+  maxLevel: 5
+  baseValue: 0.85
   multiplierPerLevel: 1
-  baseCost: 20
+  baseCost: 10
   costMultiplierPerLevel: 5
-  statToModify: 4
-  matterToModify: 1
+  statToModify: 11
+  matterToModify: 4

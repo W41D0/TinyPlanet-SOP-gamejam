@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63239277094cc484eb25b5712e7bdd96, type: 3}
-  m_Name: Dash Cool Dawn
+  m_Name: DASH DISTANCE
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
-  powerupName: 
-  icon: {fileID: 0}
-  statusEffectIcon: {fileID: 0}
-  descriptionTemplate: 
-  maxLevel: 0
-  baseValue: 0
-  multiplierPerLevel: 0
+  powerupName: DASH DISTANCE
+  icon: {fileID: 4758714507323444636, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
+  descriptionTemplate: Increases dash distance by {0}m
+  maxLevel: 5
+  baseValue: 1.2
+  multiplierPerLevel: 1
   baseCost: 10
-  costMultiplierPerLevel: 1.5
-  statToModify: 0
-  matterToModify: 0
+  costMultiplierPerLevel: 5
+  statToModify: 10
+  matterToModify: 4
