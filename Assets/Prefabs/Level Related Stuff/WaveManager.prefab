@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: becfdfe14ef2add4cad5f10bda70b822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  roundDuration: 30
+  roundDuration: 25
   currentRound: 1
   enemyPrefabs:
   - {fileID: 4279242373925183671, guid: 212c99bcdf6ecb54ca6bdff127f120bb, type: 3}
@@ -58,8 +58,13 @@ MonoBehaviour:
   - {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
   - {fileID: 3804402802043390265, guid: 247500acc92bfbd4fb0c551858b14827, type: 3}
   - {fileID: 143470429126923637, guid: a4a47b59335b8c64f966a8fcc77ee47e, type: 3}
+  - {fileID: 8946783045268601246, guid: 88ecc22bcf38bca4c9e152f2355a8169, type: 3}
+  - {fileID: 7635354098370165053, guid: 5aaef14663c33e44ab534fea6656720d, type: 3}
+  - {fileID: 8946783045268601246, guid: 88ecc22bcf38bca4c9e152f2355a8169, type: 3}
+  - {fileID: 7635354098370165053, guid: 5aaef14663c33e44ab534fea6656720d, type: 3}
   baseSpawnRate: 3
-  maxSpawnRate: 0.5
+  maxSpawnRate: 0.1
   roundToMaxSpawnRate: 10
   clockText: {fileID: 0}
+  waveText: {fileID: 0}
   upgradeManager: {fileID: 0}

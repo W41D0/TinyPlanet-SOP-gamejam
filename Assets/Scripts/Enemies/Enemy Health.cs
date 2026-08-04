@@ -54,6 +54,9 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float amount, bool isCrit = false)
     {
         currentHealth -= amount;
+
+        if(CoinBag.Instance != null)
+            CoinBag.Instance.AddCoins(amount);
         
         if (healthBar != null) 
         {

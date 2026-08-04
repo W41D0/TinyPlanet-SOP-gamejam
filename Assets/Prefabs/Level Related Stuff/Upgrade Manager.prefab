@@ -58,3 +58,4 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   upgradeUIPanel: {fileID: 0}
+  GoldText: {fileID: 0}
