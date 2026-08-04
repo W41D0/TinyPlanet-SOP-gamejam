@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     private Coroutine knockbackCoroutine;
     private Coroutine invincibilityCoroutine; 
 
-    private bool isInvincible = false;
+    public bool isInvincible = false;
     private int lastDamageFrame = -1;
     private float highestDamageThisFrame = 0f;
 

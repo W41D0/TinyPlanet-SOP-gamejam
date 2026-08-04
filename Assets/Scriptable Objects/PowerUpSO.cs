@@ -11,7 +11,9 @@ public enum StatModifierType
     FireRate,
     Spread,
     Thorns,
-    MatterTime
+    MatterTime,
+    DashDistance,
+    DashCooldown
 }
 
 public enum MatterType
