@@ -13198,6 +13198,22 @@ PrefabInstance:
       propertyPath: 'upgradeCards.Array.data[2]'
       value: 
       objectReference: {fileID: 274750886}
+    - target: {fileID: 5251835918013603333, guid: d3f7b350785e44c4ab34b502947403d6, type: 3}
+      propertyPath: allAvailablePowerups.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251835918013603333, guid: d3f7b350785e44c4ab34b502947403d6, type: 3}
+      propertyPath: 'allAvailablePowerups.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3858f8127f59e254a99dbb146a74b9b4, type: 2}
+    - target: {fileID: 5251835918013603333, guid: d3f7b350785e44c4ab34b502947403d6, type: 3}
+      propertyPath: 'allAvailablePowerups.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6b8fbee76f98aec45a1f18fd404b179d, type: 2}
+    - target: {fileID: 5251835918013603333, guid: d3f7b350785e44c4ab34b502947403d6, type: 3}
+      propertyPath: 'allAvailablePowerups.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 5403b1988950c6a49a053d78083cc5a2, type: 2}
     - target: {fileID: 7612945451736559143, guid: d3f7b350785e44c4ab34b502947403d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.37836
