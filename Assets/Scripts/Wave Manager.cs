@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // For the Clock UI
+using TMPro;
+using UnityEngine.UI; // For the Clock UI
 
 public class WaveManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("UI & Systems")]
     public TextMeshProUGUI clockText; 
+    public TextMeshProUGUI waveText;
     public UpgradeManager upgradeManager;
 
     void Start()
@@ -69,6 +71,7 @@ public class WaveManager : MonoBehaviour
         UpdateEnemyStats(currentRound);
 
         isRoundActive = true;
+        waveText.text = "WAVE: " + currentRound;
     }
 
     private void EndRound()

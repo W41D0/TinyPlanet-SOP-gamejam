@@ -19,7 +19,7 @@ MonoBehaviour:
   maxLevel: 0
   baseValue: 5
   multiplierPerLevel: 3
-  baseCost: 10
-  costMultiplierPerLevel: 1
+  baseCost: 20
+  costMultiplierPerLevel: 5
   statToModify: 8
   matterToModify: 4
