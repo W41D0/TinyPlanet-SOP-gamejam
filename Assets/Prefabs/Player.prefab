@@ -5936,6 +5936,7 @@ MonoBehaviour:
   gameOverSceneName: Game Over
   playerSprite: {fileID: 4806939980390540834}
   playerCollider: {fileID: 5617467212926549122}
+  isInvincible: 0
 --- !u!114 &4913303555505255026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6008,8 +6009,18 @@ MonoBehaviour:
   SpeedMultiplier: 1
   baseMoveSpeed: 5
   SprintMultiplier: 1.5
+  DashCooldownMultiplier: 1
+  DashSpeedMultiplier: 1
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 2
+  ghostSpawnRate: 0.05
+  enemyLayerName: Enemy
+  audioSource: {fileID: 0}
+  dashClip: {fileID: 0}
   spriteRenderer: {fileID: 4806939980390540834}
   animator: {fileID: 8359336498883266309}
+  isInvincible: 0
 --- !u!61 &5617467212926549122
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6071,6 +6082,8 @@ MonoBehaviour:
   healthMultiplier: 1
   thornsDamage: 0
   movementSpeedMultiplier: 1
+  dashCooldownMultiplier: 1
+  dashSpeedMultiplier: 1
   solidDamageMult: 1
   solidKnockbackMult: 1
   solidFireRateMult: 1
