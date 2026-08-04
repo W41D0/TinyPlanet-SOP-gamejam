@@ -2789,6 +2789,7 @@ GameObject:
   - component: {fileID: 1160998201124609021}
   - component: {fileID: 9022466776640700157}
   - component: {fileID: 435213259238521512}
+  - component: {fileID: 6748673474697399639}
   m_Layer: 5
   m_Name: Upgrade Screen
   m_TagString: Untagged
@@ -2884,6 +2885,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &6748673474697399639
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204690857521950776}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7696259401156778278
 GameObject:
   m_ObjectHideFlags: 0
