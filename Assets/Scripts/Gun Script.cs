@@ -1,4 +1,3 @@
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Assemblies;
@@ -116,7 +115,7 @@ public class GunScript : MonoBehaviour
     Transform bulletSpawnObject;
 
     string currentState = "s";
-    bool inPlasmaMode = false;
+    //bool inPlasmaMode = false;
     private PlayerStats stats;
 
     PlayerController player;
