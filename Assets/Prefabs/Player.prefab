@@ -674,7 +674,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 8
+  m_PointLightOuterRadius: 16
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -5716,7 +5716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 849130149113281677}
-  - component: {fileID: 5406649696079398635}
+  - component: {fileID: 7317152132034300080}
   m_Layer: 0
   m_Name: Player Sight
   m_TagString: PlayerSight
@@ -5739,8 +5739,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8485424838883465266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5406649696079398635
-CircleCollider2D:
+--- !u!70 &7317152132034300080
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5774,7 +5774,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 10
+  m_Size: {x: 30, y: 20}
+  m_Direction: 1
 --- !u!1 &7095739417626012044
 GameObject:
   m_ObjectHideFlags: 0
@@ -5868,7 +5869,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4683111791168263789, guid: cfa00d4ffd3965044b6ea7512e457390, type: 3}
+  m_Sprite: {fileID: 8598911646308356358, guid: 86a35fd548d97fd47b5815062e397825, type: 3}
   m_Color: {r: 0.72641504, g: 0.92074895, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6047,7 +6048,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.24, y: 2.91}
+    oldSize: {x: 1.75, y: 2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6102,7 +6103,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7095739417626012044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2dc8621b65ebf91498264f7c30e0edf2, type: 2}
   m_CullingMode: 0
