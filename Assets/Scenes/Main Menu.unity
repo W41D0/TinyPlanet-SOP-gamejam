@@ -2725,9 +2725,12 @@ MonoBehaviour:
 
     Shift - Sprint
 
+    Space - Dash
+
     Mouse - Aim
 
-    Left Click - Shoot'
+    Left
+    Click - Shoot'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_sharedMaterial: {fileID: 0}

@@ -543,9 +543,9 @@ MonoBehaviour:
   timeBetweenPlasmaBullets: 0.005
   plasmaBulletRecoil: 2
   plasmaBulletSpread: 50
-  maxSolidMeter: 3
-  maxLiquidMeter: 3
-  maxGasMeter: 3
+  maxSolidMeter: 4
+  maxLiquidMeter: 4
+  maxGasMeter: 4
   maxPlasmaMeter: 2
   PlasmaMeter: 0
   meterDepletionRate: 1
