@@ -12,12 +12,16 @@ public class UpgradeManager : MonoBehaviour
     public GameObject upgradeUIPanel;
     public TextMeshProUGUI GoldText;
 
+    [Header("Animation Settings")]
+    public CanvasGroup shopCanvasGroup;
+    public float animationDuration = 0.25f;
+
     private Dictionary<PowerUpSO, int> playerInventory = new Dictionary<PowerUpSO, int>();
 
     public void RollRandomUpgrades()
     {
-        Time.timeScale = 0f;
         upgradeUIPanel.SetActive(true);
+        StartCoroutine(AnimateShopOpen());
 
         List<PowerUpSO> pool = new List<PowerUpSO>();
         foreach (var powerup in allAvailablePowerups)
@@ -129,5 +133,32 @@ public class UpgradeManager : MonoBehaviour
                 playerHealth.Heal(playerHealth.getTotalHealth());
             }
         }
+    }
+
+    private System.Collections.IEnumerator AnimateShopOpen()
+    {
+        shopCanvasGroup.alpha = 0f;
+        upgradeUIPanel.transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+        
+        Time.timeScale = 0.1f; 
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < animationDuration)
+        {
+            elapsedTime += Time.unscaledDeltaTime; 
+            float percentage = elapsedTime / animationDuration;
+
+            float ease = Mathf.Sin(percentage * Mathf.PI * 0.5f);
+
+            shopCanvasGroup.alpha = ease;
+            upgradeUIPanel.transform.localScale = Vector3.Lerp(new Vector3(0.8f, 0.8f, 1f), Vector3.one, ease);
+
+            yield return null;
+        }
+
+        shopCanvasGroup.alpha = 1f;
+        upgradeUIPanel.transform.localScale = Vector3.one;
+        Time.timeScale = 0f;
     }
 }
