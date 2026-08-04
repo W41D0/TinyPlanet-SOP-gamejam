@@ -8,6 +8,8 @@ public class PlayerStats : MonoBehaviour
     public float thornsDamage = 0f;
 
     [HideInInspector] public float movementSpeedMultiplier = 1f;
+    [HideInInspector] public float dashCooldownMultiplier = 1f; // <-- NEW
+    [HideInInspector] public float dashSpeedMultiplier = 1f;    // <-- NEW
 
     // --------------------------------------------------------
     // LIVE MATTER MULTIPLIERS
@@ -17,21 +19,21 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector] public float solidFireRateMult = 1f;
     [HideInInspector] public float solidSpreadMult = 1f;
     [HideInInspector] public float solidMatterTimeMult = 1f;
-    [HideInInspector] public float solidRangeMult = 1f; // Replaced Bullets with Range!
+    [HideInInspector] public float solidRangeMult = 1f; 
 
     [HideInInspector] public float liquidDamageMult = 1f;
     [HideInInspector] public float liquidKnockbackMult = 1f;
     [HideInInspector] public float liquidFireRateMult = 1f;
     [HideInInspector] public float liquidSpreadMult = 1f;
     [HideInInspector] public float liquidMatterTimeMult = 1f;
-    [HideInInspector] public float liquidRangeMult = 1f; // Replaced Bullets with Range!
+    [HideInInspector] public float liquidRangeMult = 1f; 
 
     [HideInInspector] public float gasDamageMult = 1f;
     [HideInInspector] public float gasKnockbackMult = 1f;
     [HideInInspector] public float gasFireRateMult = 1f;
     [HideInInspector] public float gasSpreadMult = 1f;
     [HideInInspector] public float gasMatterTimeMult = 1f;
-    [HideInInspector] public float gasRangeMult = 1f; // Replaced Bullets with Range!
+    [HideInInspector] public float gasRangeMult = 1f; 
 
     // --------------------------------------------------------
     // PLASMA BLITZ MULTIPLIERS
@@ -41,7 +43,7 @@ public class PlayerStats : MonoBehaviour
     [HideInInspector] public float plasmaFireRateMult = 1f;
     [HideInInspector] public float plasmaSpreadMult = 1f;
     [HideInInspector] public float plasmaMatterTimeMult = 1f;
-    [HideInInspector] public float plasmaRangeMult = 1f; // Replaced Bullets with Range!
+    [HideInInspector] public float plasmaRangeMult = 1f; 
 
     private PlayerHealth playerHealth;
     private PlayerController playerController;
@@ -60,6 +62,8 @@ public class PlayerStats : MonoBehaviour
         healthMultiplier = 1f;
         thornsDamage = 0f;
         movementSpeedMultiplier = 1f;
+        dashCooldownMultiplier = 1f; // <-- NEW
+        dashSpeedMultiplier = 1f;    // <-- NEW
 
         solidDamageMult = 1f; liquidDamageMult = 1f; gasDamageMult = 1f;
         solidKnockbackMult = 1f; liquidKnockbackMult = 1f; gasKnockbackMult = 1f;
@@ -70,8 +74,7 @@ public class PlayerStats : MonoBehaviour
         plasmaDamageMult = 1f; plasmaKnockbackMult = 1f; plasmaFireRateMult = 1f; 
         plasmaSpreadMult = 1f; plasmaMatterTimeMult = 1f; plasmaRangeMult = 1f;
 
-        
-        solidRangeMult = 1f; liquidRangeMult = 1f; gasRangeMult = 1f; // WIPED CLEAN
+        solidRangeMult = 1f; liquidRangeMult = 1f; gasRangeMult = 1f; 
 
         // 2. APPLY ALL INVENTORY ITEMS
         foreach (var kvp in inventory)
@@ -80,7 +83,6 @@ public class PlayerStats : MonoBehaviour
             int levelReached = kvp.Value; 
             
             // --- NEW: CUMULATIVE MATH ---
-            // Sum up the value of every single level the player has earned for this card
             float totalValForThisCard = 0f;
             for (int i = 1; i <= levelReached; i++)
             {
@@ -93,6 +95,8 @@ public class PlayerStats : MonoBehaviour
                 case StatModifierType.MaxHealth: healthMultiplier += totalValForThisCard; break;
                 case StatModifierType.Thorns: thornsDamage += totalValForThisCard; break;
                 case StatModifierType.Speed: movementSpeedMultiplier += totalValForThisCard; break;
+                case StatModifierType.DashCooldown: dashCooldownMultiplier += totalValForThisCard; break; // <-- NEW
+                case StatModifierType.DashDistance: dashSpeedMultiplier += totalValForThisCard; break;    // <-- NEW
                 
                 case StatModifierType.Range: 
                     if (powerup.matterToModify == MatterType.All || powerup.matterToModify == MatterType.Solid) solidRangeMult += totalValForThisCard;
@@ -133,17 +137,17 @@ public class PlayerStats : MonoBehaviour
         }
 
         // 3. APPLY PLASMA MERGE LOGIC
-        // Only damage inherits a bonus from the other 3 states. Fire rate (which also
-        // drives plasma bullet speed in GunScript), range, spread, and knockback stay
-        // on their own default values below and are NOT merged from solid/liquid/gas.
         plasmaDamageMult = solidDamageMult + liquidDamageMult + gasDamageMult * 0.5f;
-        //plasmaKnockbackMult = solidKnockbackMult + liquidKnockbackMult + gasKnockbackMult * 0.5f;
-        //plasmaFireRateMult = solidFireRateMult + liquidFireRateMult + gasFireRateMult * 0.5f;
-        //plasmaRangeMult = solidRangeMult + liquidRangeMult + gasRangeMult * 0.5f;
 
         // 4. PUSH FLAT UPDATES
         playerHealth.ThornsDamage = thornsDamage;
         playerHealth.setTotalHealth(initialBaseHealth * healthMultiplier);
-        if (playerController != null) playerController.SpeedMultiplier = movementSpeedMultiplier;
+        
+        if (playerController != null) 
+        {
+            playerController.SpeedMultiplier = movementSpeedMultiplier;
+            playerController.DashCooldownMultiplier = dashCooldownMultiplier; // <-- NEW
+            playerController.DashSpeedMultiplier = dashSpeedMultiplier;       // <-- NEW
+        }
     }
 }
