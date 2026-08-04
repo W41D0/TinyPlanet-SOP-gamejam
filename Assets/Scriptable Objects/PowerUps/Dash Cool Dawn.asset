@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63239277094cc484eb25b5712e7bdd96, type: 3}
+  m_Name: Dash Cool Dawn
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSO
+  powerupName: 
+  icon: {fileID: 0}
+  statusEffectIcon: {fileID: 0}
+  descriptionTemplate: 
+  maxLevel: 0
+  baseValue: 0
+  multiplierPerLevel: 0
+  baseCost: 10
+  costMultiplierPerLevel: 1.5
+  statToModify: 0
+  matterToModify: 0
