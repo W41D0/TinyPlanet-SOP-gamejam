@@ -396,7 +396,7 @@ MonoBehaviour:
   dashSpeed: 15
   dashDuration: 0.3
   dashRecoveryTime: 1
-  dashCooldown: 300
+  dashCooldown: 3
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   prepColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2698747266529279800
