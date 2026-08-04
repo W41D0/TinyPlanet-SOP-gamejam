@@ -16,8 +16,8 @@ MonoBehaviour:
   icon: {fileID: -8096500043677648198, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases the fire rate of solids by {0}
-  maxLevel: 10
-  baseValue: 1.1
+  maxLevel: 10000
+  baseValue: 1.2
   multiplierPerLevel: 0.9
   baseCost: 10
   costMultiplierPerLevel: 1.5
