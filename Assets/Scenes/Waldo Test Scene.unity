@@ -940,7 +940,7 @@ PrefabInstance:
     - target: {fileID: 592224358796148556, guid: 3c21d2c4515cb204a8cb2152c3721781, type: 3}
       propertyPath: menuMusic
       value: 
-      objectReference: {fileID: 8300000, guid: f9d6fc45a7a557840b4197e5806df974, type: 3}
+      objectReference: {fileID: 8300000, guid: 8ec21eaa02c9d704bb78ce9400b6bfa6, type: 3}
     - target: {fileID: 3363308622417103738, guid: 3c21d2c4515cb204a8cb2152c3721781, type: 3}
       propertyPath: m_Name
       value: MusicManager
@@ -1179,6 +1179,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b34460d42a9194745a7bfdc94257b096, type: 3}
+--- !u!1 &1000108922 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3617952767985670414, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+  m_PrefabInstance: {fileID: 2060001090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1000108924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000108922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8043ab2be27c34095e01738880e5da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunSoundObserver
+  oneShotSource: {fileID: 0}
+  loopSource: {fileID: 0}
+  solidSound: {fileID: 8300000, guid: c4ab59f09ac05f9448fe390198086a4b, type: 3}
+  liquidSound: {fileID: 8300000, guid: 4a471917ccf34f146aaaef9c03958bb3, type: 3}
+  gasSound: {fileID: 8300000, guid: 3b149171d1c561344a8c6708199adc88, type: 3}
+  plasmaSound: {fileID: 8300000, guid: dbd2566a41f040b47bd399d1f1654001, type: 3}
+  isPlasmaContinuous: 1
 --- !u!1 &1016188099
 GameObject:
   m_ObjectHideFlags: 0
@@ -13820,7 +13844,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3617952767985670414, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1000108924}
   m_SourcePrefab: {fileID: 100100000, guid: a6ab840239f85d247ae993186b1797c3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

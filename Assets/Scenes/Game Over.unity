@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverManager
   mainMenuSceneName: Main Menu
-  restartSceneName: Test Scene
+  restartSceneName: Waldo Test Scene
 --- !u!4 &157050789
 Transform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_text: Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
-  m_sharedMaterial: {fileID: 4324717516768279222, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
+  m_sharedMaterial: {fileID: 6103598182588854209, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
-  m_sharedMaterial: {fileID: 4324717516768279222, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
+  m_sharedMaterial: {fileID: 6103598182588854209, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -994,7 +994,7 @@ MonoBehaviour:
   m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
-  m_sharedMaterial: {fileID: 4324717516768279222, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
+  m_sharedMaterial: {fileID: 6103598182588854209, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_text: hiiiiiiigh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
-  m_sharedMaterial: {fileID: 4324717516768279222, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
+  m_sharedMaterial: {fileID: 6103598182588854209, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_text: laaaaaaast
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
-  m_sharedMaterial: {fileID: 4324717516768279222, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
+  m_sharedMaterial: {fileID: 6103598182588854209, guid: b7b9999e3a2ef744f9af738f7bde194f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -371,14 +371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a0ad0e3c11ccff4f83014a5a1ae4c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  roundDuration: 60
-  currentRound: 1
-  enemyPrefabs: []
-  baseSpawnRate: 3
-  maxSpawnRate: 0.5
-  roundToMaxSpawnRate: 10
-  clockText: {fileID: 0}
-  upgradeManager: {fileID: 0}
 --- !u!4 &305819875
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &324565787
 Transform:
   m_ObjectHideFlags: 0
