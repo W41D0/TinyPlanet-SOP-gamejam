@@ -17,7 +17,7 @@ MonoBehaviour:
   statusEffectIcon: {fileID: 8963368785945452489, guid: 09c1f44b3fd8ad641b99132c5292112a, type: 3}
   descriptionTemplate: Increases damage by {0}
   maxLevel: 10000
-  baseValue: 1.5
+  baseValue: 1.25
   multiplierPerLevel: 1
   baseCost: 10
   costMultiplierPerLevel: 1.5
