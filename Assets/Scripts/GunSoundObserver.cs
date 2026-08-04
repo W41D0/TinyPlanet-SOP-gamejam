@@ -37,7 +37,8 @@ public class GunSoundObserver : MonoBehaviour
         }
     }
 
-    void Update()
+    // التغيير السحري هنا: استخدام LateUpdate بدلاً من Update
+    void LateUpdate()
     {
         if (player != null && gunScript != null)
         {
